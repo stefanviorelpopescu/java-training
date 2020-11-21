@@ -44,53 +44,81 @@ public class SecondChallenge {
     public void runComplex(int number) {
 
         String toShow = "";
+        int count =0;
 
         if (divisibleBy3(number)) {
             toShow += "Foo";
+            count++;
         }
         if (divisibleBy5(number)) {
             toShow += "Bar";
+            count++;
         }
         if (divisibleBy7(number)) {
             toShow += "Qix";
+            count++;
         }
 
-        int temp = number;
-        int count = 0;
-        while (temp > 0) {
-            if (temp%10 == 0) {
-                toShow += "*";
-            }
-            else if (temp%10 == 3) {
-                toShow += "Foo";
-                count++;
-            } else if (temp%10 == 5) {
-                toShow += "Bar";
-                count++;
-            } else if (temp%10 == 7) {
-                toShow += "Qix";
-                count++;
-            }
-
-            temp/=10;
+        if (count != 0) {
+            toShow += eachDigitWithDivisors(number);
+        } else {
+            toShow += eachDigitWithoutDivisors(number);
         }
-
-        if (count == 0) {
-            toShow = "";
-            temp = number;
-            while (temp>0) {
-                if (temp%10 == 0) {
-                    toShow += "*";
-                } else {
-                    toShow += temp%10;
-                }
-
-                temp/=10;
-            }
-        }
-
         System.out.println(number + " => " + toShow);
 
+    }
+
+    public String eachDigitWithDivisors(int number) {
+
+        String toReturn = "";
+        int nod = (int) Math.pow(10,numbersOfDigits(number))/10;
+
+        do {
+            int toCheck = number/nod;
+            nod /= 10;
+
+            if (toCheck%10 == 0) {
+                toReturn += "*";
+            } else if (toCheck%10 == 3) {
+                toReturn += "Foo";
+            } else if (toCheck%10 == 5) {
+                toReturn += "Bar";
+            } else if (toCheck%10 == 7) {
+                toReturn += "Qix";
+            }
+
+        } while (nod != 0);
+
+        return toReturn;
+    }
+
+    public String eachDigitWithoutDivisors(int number) {
+
+        String toReturn = "";
+
+        while (number>0) {
+            if (number%10 == 0) {
+                toReturn += "*";
+            } else {
+                toReturn += number%10;
+            }
+
+            number/=10;
+        }
+
+        return toReturn;
+
+    }
+
+    public int numbersOfDigits(int number) {
+
+        int count=0;
+        while (number>0) {
+            count++;
+            number/=10;
+        }
+
+        return count;
     }
 
     public boolean divisibleBy3(int number) {
