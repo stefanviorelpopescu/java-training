@@ -11,6 +11,7 @@ public class FirstChallenge {
         System.out.println("For numbers which are multiples of both 3 and 5 print \"FizzBuzz\"");
     }
 
+    // fara 7 si 11
     public void runSimple() {
 
         int number=100;
@@ -50,9 +51,9 @@ public class FirstChallenge {
             } else if (i%5==0) {
                 System.out.print("Buzz, ");
             } else if (i%7==0) {
-                System.out.println("Rizz");
+                System.out.println("Rizz, ");
             } else if (i%11==0) {
-                System.out.println("Jazz");
+                System.out.println("Jazz, ");
             } else {
                 System.out.print(i + ", ");
             }
@@ -65,9 +66,9 @@ public class FirstChallenge {
         } else if (number%5==0) {
             System.out.print("Buzz.");
         } else if (number%7==0) {
-            System.out.println("Rizz");
+            System.out.println("Rizz.");
         } else if (number%11==0) {
-            System.out.println("Jazz");
+            System.out.println("Jazz.");
         } else {
             System.out.print(number + ".");
         }
