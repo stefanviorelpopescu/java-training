@@ -1,5 +1,6 @@
 package code._2_challenge._3_pair_of_2;
 
+import code._4_student_effort.Challenge3;
 import org.junit.Assert;
 
 import java.util.Arrays;
@@ -16,11 +17,12 @@ public class PairOf2Test {
 
   @org.junit.Test
   public void test() {
-    PairOf2 PairOf2 = new PairOf2();
+    Challenge3 c3 = new Challenge3();
     for (Map.Entry<Integer[], Integer> entry : data.entrySet()) {
       Integer[] input = entry.getKey();
       Integer expected = entry.getValue();
-      Integer actual = PairOf2.countPairs(input);
+      Integer actual = c3.nrOfPairs(input);
+      System.out.println("for input: " + Arrays.asList(input) + "  output:" + actual);
       Assert.assertEquals("for input: " + Arrays.asList(input), expected, actual);
     }
   }

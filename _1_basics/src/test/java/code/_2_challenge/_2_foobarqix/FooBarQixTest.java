@@ -1,5 +1,6 @@
 package code._2_challenge._2_foobarqix;
 
+import code._4_student_effort.Challenge2;
 import org.junit.Assert;
 
 import java.util.Map;
@@ -35,10 +36,10 @@ public class FooBarQixTest {
 
   @org.junit.Test
   public void stage1() {
-    FooBarQix FooBarQix = new FooBarQix();
+    Challenge2 c = new Challenge2();
     for (Map.Entry<Integer, String> entry : stage1.entrySet()) {
       Integer input = entry.getKey();
-      String actual = FooBarQix.compute(entry.getKey());
+      String actual = c.compute(entry.getKey());
       String expected = entry.getValue();
       Assert.assertEquals("for input: " + input, expected, actual);
     }
@@ -46,10 +47,10 @@ public class FooBarQixTest {
 
   @org.junit.Test
   public void stage2() {
-    FooBarQix FooBarQix = new FooBarQix();
+    Challenge2 c2 = new Challenge2();
     for (Map.Entry<Integer, String> entry : stage2.entrySet()) {
       Integer input = entry.getKey();
-      String actual = FooBarQix.compute2(entry.getKey());
+      String actual = c2.compute2(entry.getKey());
       String expected = entry.getValue();
       Assert.assertEquals("for input: " + input, expected, actual);
     }

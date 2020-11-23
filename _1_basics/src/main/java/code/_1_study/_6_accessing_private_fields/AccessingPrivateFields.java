@@ -14,5 +14,8 @@ public class AccessingPrivateFields {
     Field field = student.getClass().getDeclaredField("name");
     field.setAccessible(true);
     System.out.println(field.get(student));
+    Field field2 = student.getClass().getDeclaredField("age");
+    field2.setAccessible(true);
+    System.out.println(field2.get(student));
   }
 }
