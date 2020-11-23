@@ -8,14 +8,14 @@ public class Main {
 //    calling the methods
     fizzBuzz1Print(100);
     fizzBuzz2Print(100);
-    assert fooBarQix1(105).equals("FooBarQixBar") : "wrong";
-    assert fooBarQix2(101).equals("1*1") : "not working on numbers that do not divide";
-    assert pairOfTwo(new int[]{10, -10, 3, -10,-3}) == 2 : "wrong";
-    assert pairOfThree(new int[]{-1,-1,-1,2,3,-2,-1}) == 2 : "wrong";
-//    System.out.println(fooBarQix1(105));
-//    System.out.println(fooBarQix2(101));//not working
-//    System.out.println(pairOfTwo(new int[]{10, -10, 3, -10,-3}));
-//    System.out.println(pairOfThree(new int[]{-1,-1,-1,2,3,-2,-1}));
+//    assert fooBarQix1(105).equals("FooBarQixBar") : "wrong";
+//    assert fooBarQix2(101).equals("1*1") : "wrong";
+//    assert pairOfTwo(new int[]{10, -10, 3, -10,-3}) == 2 : "wrong";
+//    assert pairOfThree(new int[]{-1,-1,-1,2,3,-2,-1}) == 2 : "wrong";
+    System.out.println(fooBarQix1(105));
+    System.out.println(fooBarQix2(101));//works
+    System.out.println(pairOfTwo(new int[]{10, -10, 3, -10,-3}));
+    System.out.println(pairOfThree(new int[]{-1,-1,-1,2,3,-2,-1}));
   }
 
   private static void fizzBuzz1Print(int num) {
@@ -50,13 +50,15 @@ public class Main {
     return s;
   }
 
-  // not working for numbers the do not divide
+  // works
   private static String fooBarQix2 (int num) {
     String s = num % 3 == 0 ? (num % 5 == 0 ? (num % 7 == 0 ? "FooBarQix" : "FooBar") : (num % 7 == 0 ? "FooQix" : "Foo")) : (num % 5 == 0 ? (num % 7 == 0 ? "BarQix" : "Bar") : (num % 7 == 0 ? "Qix" : ""));
-    for (char digit:String.valueOf(num).toCharArray()) {
-      s = (digit == '3') ? s + "Foo" : (digit == '5' ? s + "Bar" : (digit == '7' ? s + "Qix" : digit == '0' ? s + "*" : s));
+    if(!s.equals("")){
+      for (char digit:String.valueOf(num).toCharArray()) {
+        s = (digit == '3') ? s + "Foo" : (digit == '5' ? s + "Bar" : (digit == '7' ? s + "Qix" : digit == '0' ? s + "*" : s));
+      }
     }
-    if (s.equals("")) {
+    else {
       char[] digits = String.valueOf(num).toCharArray();
       for (char digit:digits) {
         s = (digit ==  '0') ? s + "*" : s + digit;
