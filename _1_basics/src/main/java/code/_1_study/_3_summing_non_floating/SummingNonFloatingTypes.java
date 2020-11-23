@@ -12,6 +12,7 @@ public class SummingNonFloatingTypes {
     byte y = 10;
     byte sum;
     sum = (byte) (x + y);
+    System.out.println(sum);
   }
 
   private static void sumShorts() {
@@ -19,6 +20,7 @@ public class SummingNonFloatingTypes {
     short y = 10;
     short sum;
     sum = (short) (x + y);
+    System.out.println(sum);
   }
 
   private static void sumInts() {
