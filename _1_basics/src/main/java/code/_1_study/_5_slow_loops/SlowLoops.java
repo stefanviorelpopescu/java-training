@@ -15,6 +15,9 @@ public class SlowLoops {
     Instant stop2 = Instant.now();
     Duration duration2 = Duration.between(start2, stop2);
     System.out.println("using wrapper: " + duration2); //why is duration1 so different from duration2 ?
+    /*
+    * every time the i is incremented a new integer object it's instantiated
+    * */
   }
 
   private static void loopUsingPrimitive() {
