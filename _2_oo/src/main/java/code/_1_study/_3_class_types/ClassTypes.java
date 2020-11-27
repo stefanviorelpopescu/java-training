@@ -35,7 +35,7 @@ public class ClassTypes {
     int k = 0;
     int l = 1;
 
-    Runnable annonimousClass = new Runnable() {
+    Runnable annonimousClass = new Runnable() { //o clasa noua care implementeaza Runnable si trb sa ii imlementam metodele
       @Override
       public void run() {
         System.out.println("annonimousClass - run");
