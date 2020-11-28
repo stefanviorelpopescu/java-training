@@ -40,7 +40,7 @@ public class Main {
     //for(int j = 1; j<150;j++)
       //System.out.println(j + ": " + fizzBuzz3(j)); //print all numbers 1-150
       //System.out.println(j + ": " + compute3(j)); //print all numbers 1-150
-      
+
       //show_pairs(); // calling the show_pairs function
 
   }
