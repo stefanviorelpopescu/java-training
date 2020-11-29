@@ -11,6 +11,7 @@ public class Main {
     System.out.println(boxingMatch.fight());
   }
 
+
   public static void CodeChallenge2() {
 
     Premiu oscar1990 = new Premiu("oscar", 1990);
@@ -56,8 +57,7 @@ public class Main {
           // we search for our actor
           if (arrayStudio[i].getFilme(j).getActori(k).getNume() == "actor cu 2 oscaruri") {
             // search to find if the studio is already in our string
-            if (secondObjective.contains(arrayStudio[i].getNume())) {
-            } else {
+            if (!secondObjective.contains(arrayStudio[i].getNume())) {
               secondObjective += arrayStudio[i].getNume() + " ";
             }
           }
@@ -77,9 +77,7 @@ public class Main {
         for (int k = 0; k < arrayStudio[i].getFilme(j).getLenghtOfActori(); k++) {
           // search to find if the movies has any actors with age above 50
           if (arrayStudio[i].getFilme(j).getActori(k).getVarsta() > 50) {
-            if (thirdObjective.contains(arrayStudio[i].getFilme(j).getNume())) {
-
-            } else {
+            if (!thirdObjective.contains(arrayStudio[i].getFilme(j).getNume())) {
               thirdObjective += arrayStudio[i].getFilme(j).getNume() + "\n";
             }
           }
@@ -89,15 +87,56 @@ public class Main {
     System.out.println(thirdObjective);
   }
 
+
   public static void CodeChallenge3() {
 
+    Fish d = new Fish();
+    Cat c = new Cat("Fluffy");
+    Animal a = new Fish();
+    Animal e = new Spider();
+    Pet p = new Cat();
+
+    // all methods from Fish d = new Fish();
+    System.out.println("Fish name: " + d.getName());
+    d.play();
+    d.setName("Nemo");
+    d.play();
+    d.walk();
+    d.eat();
+    System.out.println("\n");
+
+    // all methods from Cat c = new Cat("Fluffly);
+    System.out.println("Cat name: " + c.getName());
+    System.out.println("Number of legs: " + c.legs);
+    c.eat();
+    c.play();
+    c.walk();
+    System.out.println("\n");
+
+    // all methods from Animal a = new Fish();
+    System.out.println("Number of legs of Animal a = new Fish() -> " + a.legs);
+    a.eat();
+    a.walk();
+    System.out.println("\n");
+
+    // all methods from Animal e = new Spider();
+    System.out.println("Number of legs of Animal e = new Spider() -> " + e.legs);
+    e.walk();
+    e.eat();
+    System.out.println("\n");
+
+    // all methods from Pet p = new Cat();
+    System.out.println("Name: " + p.getName());
+    p.play();
+    p.setName("Tom");
+    System.out.println(p.getName());
   }
 
   public static void main(String[] args) {
     //TODO put your code changes in here
 
     //CodeChallenge1();
-    CodeChallenge2();
-    //CodeChallenge3();
+    //CodeChallenge2();
+    CodeChallenge3();
   }
 }
