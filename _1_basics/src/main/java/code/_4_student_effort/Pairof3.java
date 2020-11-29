@@ -4,8 +4,8 @@ import java.util.HashMap;
 public class Pairof3 {
     public static void main(String[] args) {
         int count = 0;
-        int arr[] = new int[]{-1, -1, -1,-1, 2, 2};
-        boolean arrindex[] = new boolean[6];
+        int arr[] = new int[]{3, 2, 9, -1, -8, 7, -7, -2, 0, 0, -2};
+        boolean arrindex[] = new boolean[11];
         int n = arr.length;
 
 
