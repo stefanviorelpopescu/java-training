@@ -10,55 +10,34 @@ public class SecondChallenge {
         System.out.println("For each digit 3,5,7, add \"Foo\", \"Bar\",\"Qix\" in the digits order");
     }
 
-    public void runSimple(int number) {
+    public void run(int number) {
 
         String toShow = "";
 
-        if (divisibleBy3(number)) {
-            toShow += "Foo";
-        }
-        if (divisibleBy5(number)) {
-            toShow += "Bar";
-        }
-        if (divisibleBy7(number)) {
-            toShow += "Qix";
-        }
-
-        int temp = number;
-        while (temp > 0) {
-            if (temp%10 == 3) {
-                toShow += "Foo";
-            } else if (temp%10 == 5) {
-                toShow += "Bar";
-            } else if (temp%10 == 7) {
-                toShow += "Qix";
-            }
-
-            temp/=10;
-        }
-
-        System.out.println(number + " => " + toShow);
-
-    }
-
-    public void runComplex(int number) {
-
-        String toShow = "";
         int count =0;
 
+        // see if the number is divisible by 3
+        // increase count if does
         if (divisibleBy3(number)) {
             toShow += "Foo";
             count++;
         }
+
+        // see if the number is divisible by 5
+        // increase count if does
         if (divisibleBy5(number)) {
             toShow += "Bar";
             count++;
         }
+
+        // see if the number is divisible by 7
+        // increase count if does
         if (divisibleBy7(number)) {
             toShow += "Qix";
             count++;
         }
 
+        // if count is 0 we show digits with * if the diggit is 0
         if (count != 0) {
             toShow += eachDigitWithDivisors(number);
         } else {
