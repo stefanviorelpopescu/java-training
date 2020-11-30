@@ -14,10 +14,12 @@ public class BoxingMatch {
       f1.attack(f2);
       f2.attack(f1);
     }
-    if (f1.health <= 0) {
-      return f1.name;
-    } else {
+    if (f1.health < f2.health) {
       return f2.name;
+    } else if(f2.health < f1.health ){
+      return f1.name;
+    }else{
+      return "Remiza";
     }
   }
 
