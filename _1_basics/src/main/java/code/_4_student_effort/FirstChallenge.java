@@ -11,68 +11,59 @@ public class FirstChallenge {
         System.out.println("For numbers which are multiples of both 3 and 5 print \"FizzBuzz\"");
     }
 
-    // fara 7 si 11
-    public void runSimple() {
+    public void run() {
 
-        int number=100;
+        String toShow;
 
-        for (int i=1;i<number;i++) {
-            if (i%3== 0 && i%5==0) {
-                System.out.print("FizzBuzz, ");
-            } else if (i%3==0) {
-                System.out.print("Fizz, ");
-            } else if (i%5==0) {
-                System.out.print("Buzz, ");
-            } else {
-                System.out.print(i + ", ");
+        int number=200;
+        for (int i =1 ;i<=number;i++) {
+
+            // reinit the String to show;
+            toShow="";
+
+            // see if the number is multiple of 3
+            if (multipleOf3(i)) {
+                toShow += "Fizz";
             }
-        }
 
-        if (number%3== 0 && number%5==0) {
-            System.out.print("FizzBuzz.");
-        } else if (number%3==0) {
-            System.out.print("Fizz.");
-        } else if (number%5==0) {
-            System.out.print("Buzz.");
-        } else {
-            System.out.print(number + ".");
+            // see if the number is multiple of 5
+            if (multipleOf5(i)) {
+                toShow += "Buzz";
+            }
+
+            // see if the number is multiple of 7
+            if (multipleOf7(i)) {
+                toShow += "Rizz";
+            }
+
+            // see if the number is multiple of 11
+            if (multipleOf11(i)) {
+                toShow += "Jazz";
+            }
+
+            // see if the number is multiple of 3,5,7 or 11, if not show the number
+            if (toShow.isBlank()) {
+                toShow += i;
+            }
+
+            System.out.println(i + ": " + toShow);
         }
     }
 
-    public void runComplex() {
-
-        int number=100;
-
-        for (int i=1;i<number;i++) {
-            if (i%3== 0 && i%5==0) {
-                System.out.print("FizzBuzz, ");
-            } else if (i%3==0) {
-                System.out.print("Fizz, ");
-            } else if (i%5==0) {
-                System.out.print("Buzz, ");
-            } else if (i%7==0) {
-                System.out.println("Rizz, ");
-            } else if (i%11==0) {
-                System.out.println("Jazz, ");
-            } else {
-                System.out.print(i + ", ");
-            }
-        }
-
-        if (number%3== 0 && number%5==0) {
-            System.out.print("FizzBuzz.");
-        } else if (number%3==0) {
-            System.out.print("Fizz.");
-        } else if (number%5==0) {
-            System.out.print("Buzz.");
-        } else if (number%7==0) {
-            System.out.println("Rizz.");
-        } else if (number%11==0) {
-            System.out.println("Jazz.");
-        } else {
-            System.out.print(number + ".");
-        }
+    public boolean multipleOf3 (int number) {
+        return number%3 == 0;
     }
 
+    public boolean multipleOf5 (int number) {
+        return number%5 == 0;
+    }
+
+    public boolean multipleOf7 (int number) {
+        return number%7 == 0;
+    }
+
+    public boolean multipleOf11 (int number) {
+        return number%11 == 0;
+    }
 
 }
