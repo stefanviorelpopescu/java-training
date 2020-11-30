@@ -1,6 +1,6 @@
 package code._4_student_effort;
 
-import static code._4_student_effort.Database.*;
+import static code._4_student_effort.Studios.*;
 
 public class Main {
 

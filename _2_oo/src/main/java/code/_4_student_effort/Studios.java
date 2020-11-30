@@ -1,8 +1,8 @@
 package code._4_student_effort;
 
-public class Database {
+public class Studios {
 
-    public static Studio[] getData(){
+    public static Studio[] getStudios(){
 
         Premiu oscar1990 = new Premiu("oscar", 1990);
         Premiu oscar2000 = new Premiu("oscar", 2000);
@@ -29,7 +29,7 @@ public class Database {
     }
 
     public static void studiosWithMoreThanTwoMovies(){
-        for(Studio studio : getData()){
+        for(Studio studio : getStudios()){
             if(studio.filme.length > 2){
                 System.out.println(studio.nume);
             }
@@ -37,7 +37,7 @@ public class Database {
     }
 
     public static void studioWithNamedActor(){
-        for(Studio studio : getData()){
+        for(Studio studio : getStudios()){
             for(Film film : studio.filme){
                 for (Actor actor : film.actori){
                     if (actor.nume.equals("actor cu 2 oscaruri")){
@@ -49,7 +49,7 @@ public class Database {
     }
 
     public static void moviesWithActorsOverFifty(){
-        for(Studio studio : getData()){
+        for(Studio studio : getStudios()){
             for(Film film : studio.filme){
                 for(Actor actor : film.actori){
                     if(actor.varsta > 50){
