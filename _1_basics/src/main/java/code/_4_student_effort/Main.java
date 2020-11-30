@@ -2,23 +2,49 @@ package code._4_student_effort;
 
 import code._2_challenge._1_fizzbuzz.FizzBuzz;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Main {
 
   public static void main(String[] args) {
     // Challenge 1
-    System.out.println("Result of challenge 1: ");
-    doFizzBuzz();
+    doChallenge1();
 
     // Challenge 2
-    System.out.println("\nResult of challenge 2: " + compute(53));
-    System.out.println("Result of challenge 2 request 2: " + compute2(10101));
+    doChallenge2();
 
     // Challenge 3
-    int[] array = { 3, 2, -3, -2, 3, 0 };
-    System.out.println("Result of challenge 3: " + findPairs(array));
+    doChallenge3();
 
+    // Challenge 4
+    //TODO doChallenge4();
+  }
+
+  // Challenge 1 usage in Main function
+  public static void doChallenge1() {
+    System.out.println("Result of challenge 1: ");
+    doFizzBuzz();
+  }
+
+  // Challenge 2 usage in Main function
+  public static void doChallenge2() {
+    System.out.println("\nResult of challenge 2: " + compute(53));
+    System.out.println("Result of challenge 2 request 2: " + compute2(10101));
+  }
+
+  // Challenge 3 usage in Main function
+  public static void doChallenge3() {
+    int[] array = { 3, 2, -3, -2, 3, 0 };
+    System.out.println("Result of challenge 3: " + findPairs(array, 0));
+  }
+
+  // Challenge 4 usage in Main function
+  public static void doChallenge4() {
+    int[] array = { -1, -1, -1, 2 };
+    System.out.println("Result of challenge 3: " + findPairsOf3(array, 0));
   }
 
   // Prints numbers between 1 and num with the following particularities:
@@ -99,7 +125,7 @@ public class Main {
 
   // Challenge 3
   // Find number of pairs from an array of integers
-  public static int findPairs(int[] arr) {
+  public static int findPairs(int[] arr, int targetSum) {
     // Map of integers and number of appearences
     HashMap<Integer, Integer> numAppearence = new HashMap<Integer, Integer>();
 
@@ -107,7 +133,10 @@ public class Main {
     int pairs = 0;
 
     for (int num : arr) {
-      if (!numAppearence.containsKey(num)) {
+      if (numAppearence.containsKey(targetSum-num) && (numAppearence.get(targetSum-num) > 0)) {
+        numAppearence.put(targetSum-num, numAppearence.get(targetSum-num) - 1);
+        pairs += 1;
+      } else if (!numAppearence.containsKey(num)) {
         numAppearence.put(num, 1);
       } else {
         numAppearence.put(num, numAppearence.get(num) + 1);
@@ -116,22 +145,50 @@ public class Main {
 
     //if (numAppearence.isEmpty()) System.out.println("[Debug] Map is not empty");
     // [Debug]
-    /*for (Integer num: numAppearence.keySet()){
+    /*for (Integer num: numAppearence.keySet()) {
       String key = num.toString();
       String value = numAppearence.get(num).toString();
       System.out.println(key + " " + value);
     }*/
 
-    for (int i = 0; i < arr.length; i++) {
-      // if (numAppearence.containsValue(0-arr[i])) System.out.println("[Debug] Map has value");
+    return pairs;
+  }
 
-      if (numAppearence.containsValue(0-arr[i]) && (numAppearence.get(0-arr[i]) > 0)) {
-        numAppearence.put(arr[i], numAppearence.get(arr[i]) - 1);
-        numAppearence.put(arr[i], numAppearence.get(0-arr[i]) - 1);
-        pairs += 1;
+  // Challenge 4
+  public static int findPairsOf3(int[] arr, int targeSum) {
+    // num of pais
+    int pairs = 0;
+
+    // Sort the elements of the array
+    Arrays.sort(arr);
+
+    // Map of integers and number of appearences
+    HashMap<Integer, Integer> numAppearence = new HashMap<Integer, Integer>();
+
+    for (int i = 0; i < arr.length - 2; i++) {
+      // index of the first element in the remaining elements
+      int left = i + 1;
+
+      // index of the last element
+      int right = arr.length - 1;
+
+      while (left < right) {
+        if (arr[i] + arr[left] + arr[right] == targeSum) {
+          pairs++;
+          // Increment the left value index
+          left++;
+          // Decrement the right value index
+          right--;
+
+        } else if (arr[i] + arr[left] + arr[right] < targeSum) {
+          left++; // Increment the left value index
+        } else {
+          right--; // Decrement the right value index
+        }
       }
     }
 
     return pairs;
   }
+
 }
