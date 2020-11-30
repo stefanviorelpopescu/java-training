@@ -53,7 +53,7 @@ public class Main {
 
     //CodeChallenge1();
     //CodeChallenge2();
-    CodeChallenge3();
-    //CodeChallenge4();
+    //CodeChallenge3();
+    CodeChallenge4();
   }
 }
