@@ -12,7 +12,8 @@ public class AccessingPrivateFields {
 
   private static void readPrivateField(Student student) throws NoSuchFieldException, IllegalAccessException {
     Field field = student.getClass().getDeclaredField("name");
-    field.setAccessible(true);
+    field.setAccessible(true);/* se poate seta in clasa student o proprietate ca dintr-o clasa exterioara
+    sa nu poti face un camp privat accesibil? */
     System.out.println(field.get(student));
   }
 }
