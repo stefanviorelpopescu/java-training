@@ -1,32 +1,32 @@
 package code._4_student_effort;
 
 public class Main {
-  public static void main(String[] args) {
 
-    /*
-    // First challenge: FizzBuzz
+  public static void CodeChallenge1() {
+
     FirstChallenge firstChallenge = new FirstChallenge();
     firstChallenge.showInformationsAboutChallenge();
 
-    firstChallenge.runSimple();
-    firstChallenge.runComplex();
-     */
+    firstChallenge.run();
 
-    /*
-    // Second challenge:
+  }
+
+  public static void CodeChallenge2() {
+
     SecondChallenge secondChallenge = new SecondChallenge();
     secondChallenge.showInformationsAboutChallenge();
 
     int number = 33;
-    secondChallenge.runSimple(15);
-    secondChallenge.runComplex(101);
-    secondChallenge.runComplex(303);
-    secondChallenge.runComplex(105);
-    secondChallenge.runComplex(10101);
-     */
+    secondChallenge.run(15);
+    secondChallenge.run(101);
+    secondChallenge.run(303);
+    secondChallenge.run(105);
+    secondChallenge.run(10101);
 
-    /*
-    // Third challenge:
+  }
+
+  public static void CodeChallenge3() {
+
     ThirdChallenge thirdChallenge = new ThirdChallenge();
     thirdChallenge.showInformationsAboutChallenge();
 
@@ -36,15 +36,24 @@ public class Main {
     thirdChallenge.run(array);
     array = new int[]{5,9,-5,7,-5};
     thirdChallenge.run(array);
-     */
 
-    // Fourth challenge:
+  }
+
+  public static void CodeChallenge4() {
+
     FourthChallenge fourthChallenge = new FourthChallenge();
     fourthChallenge.showInformationsAboutChallenge();
 
     int []secondArray = {-1, -1, -1, 2};
     fourthChallenge.run(secondArray);
 
-    //
+  }
+
+  public static void main(String[] args) {
+
+    //CodeChallenge1();
+    //CodeChallenge2();
+    CodeChallenge3();
+    //CodeChallenge4();
   }
 }
