@@ -1,11 +1,6 @@
 package code._4_student_effort;
 
-import code._2_challenge._1_fizzbuzz.FizzBuzz;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
 
@@ -20,13 +15,17 @@ public class Main {
     doChallenge3();
 
     // Challenge 4
-    //TODO doChallenge4();
+    doChallenge4();
   }
 
   // Challenge 1 usage in Main function
   public static void doChallenge1() {
     System.out.println("Result of challenge 1: ");
     doFizzBuzz();
+    System.out.println("Result of challenge 1 scalabil: ");
+    for (int num = 1; num < 100; num++) {
+      doFizzBuzzScalable(num);
+    }
   }
 
   // Challenge 2 usage in Main function
@@ -44,7 +43,9 @@ public class Main {
   // Challenge 4 usage in Main function
   public static void doChallenge4() {
     int[] array = { -1, -1, -1, 2 };
-    System.out.println("Result of challenge 3: " + findPairsOf3(array, 0));
+    System.out.println("Result of challenge 4: " + findPairsOf3(array, 0));
+
+    System.out.println("Result of challenge 4 alternative: " + findPairsOf3Alternative(array, 0));
   }
 
   // Prints numbers between 1 and num with the following particularities:
@@ -71,6 +72,32 @@ public class Main {
         System.out.print(num + ", ");
       }
     }
+  }
+
+  // FizzBuzz scalabil
+  public static void doFizzBuzzScalable(int num) {
+    Map<Integer, String> numString = new HashMap<>();
+
+    numString.put(3, "Fizz");
+    numString.put(5, "Buzz");
+    numString.put(7, "Rizz");
+    numString.put(11, "Jazz");
+
+    StringBuilder result = new StringBuilder();
+    boolean isDivisible = false;
+
+    for (Integer number : numString.keySet()) {
+      if (num % number == 0) {
+        System.out.print(numString.get(number));
+        isDivisible = true;
+      }
+    }
+    if (!isDivisible) {
+      System.out.print(num);
+      isDivisible = false;
+    }
+    System.out.print(", ");
+
   }
 
   //FooBarQix Challenge
@@ -127,12 +154,12 @@ public class Main {
   // Find number of pairs from an array of integers
   public static int findPairs(int[] arr, int targetSum) {
     // Map of integers and number of appearences
-    HashMap<Integer, Integer> numAppearence = new HashMap<Integer, Integer>();
+    Map<Integer, Integer> numAppearence = new HashMap<Integer, Integer>(); // space: O(N), N = length of array
 
     // num of pais
     int pairs = 0;
 
-    for (int num : arr) {
+    for (int num : arr) { // time: O(N)
       if (numAppearence.containsKey(targetSum-num) && (numAppearence.get(targetSum-num) > 0)) {
         numAppearence.put(targetSum-num, numAppearence.get(targetSum-num) - 1);
         pairs += 1;
@@ -155,32 +182,68 @@ public class Main {
   }
 
   // Challenge 4
-  public static int findPairsOf3(int[] arr, int targeSum) {
+  public static int findPairsOf3(int[] arr, int targetSum) {
+    // num of pais
+    int pairs = 0;
+
+    // Track if array elements are already included in other triplet
+    boolean[] usedIndexes = new boolean[arr.length]; // space: O(N), N = length of array
+
+    for (int i = 0; i < arr.length; i++) { // time: O(N^2)
+      int remainingSum = targetSum - arr[i];
+
+      // Map of integers and number of appearences
+      Map<Integer, Integer> numAppearence = new HashMap<Integer, Integer>(); // space: O(N)
+
+      for ( int j = i+1; j < arr.length; j++ ) {
+        if (numAppearence.containsKey(remainingSum-arr[j])
+                && (numAppearence.get(remainingSum-arr[j]) > 0) && (!usedIndexes[j])) {
+          numAppearence.put(remainingSum-arr[j], numAppearence.get(remainingSum-arr[j]) - 1);
+          usedIndexes[j] = true;
+          pairs++;
+        } else if (!numAppearence.containsKey(arr[j])) {
+          numAppearence.put(arr[j], 1);
+        } else {
+          numAppearence.put(arr[j], numAppearence.get(arr[j]) + 1);
+        }
+      }
+    }
+
+    return pairs;
+  }
+
+  // Challenge 4 with two pointers method
+  public static int findPairsOf3Alternative(int[] arr, int targetSum) {
     // num of pais
     int pairs = 0;
 
     // Sort the elements of the array
-    Arrays.sort(arr);
+    Arrays.sort(arr); // time: O(log N), N = length of array
 
-    // Map of integers and number of appearences
-    HashMap<Integer, Integer> numAppearence = new HashMap<Integer, Integer>();
+    // Track if array elements are already included in other triplet
+    boolean[] usedIndexes = new boolean[arr.length]; // space: O(N)
 
-    for (int i = 0; i < arr.length - 2; i++) {
-      // index of the first element in the remaining elements
+    for (int i = 0; i < arr.length - 2; i++) { // time: O(N^2) (worst case)
+      // Index of the first element in the remaining elements
       int left = i + 1;
 
-      // index of the last element
+      // Index of the last element
       int right = arr.length - 1;
 
       while (left < right) {
-        if (arr[i] + arr[left] + arr[right] == targeSum) {
+        if ( (arr[i] + arr[left] + arr[right] == targetSum) && (!usedIndexes[i])
+                && (!usedIndexes[left]) && (!usedIndexes[right])) {
           pairs++;
           // Increment the left value index
           left++;
           // Decrement the right value index
           right--;
 
-        } else if (arr[i] + arr[left] + arr[right] < targeSum) {
+          // Value of indexes i, left and right are included in a triplet
+          usedIndexes[i] = true;
+          usedIndexes[left] = true;
+          usedIndexes[right] = true;
+        } else if (arr[i] + arr[left] + arr[right] < targetSum) {
           left++; // Increment the left value index
         } else {
           right--; // Decrement the right value index
@@ -190,5 +253,4 @@ public class Main {
 
     return pairs;
   }
-
 }
