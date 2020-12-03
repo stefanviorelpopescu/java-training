@@ -13,40 +13,40 @@ public class FirstChallenge {
 
     public void run() {
 
-        String toShow;
+        // created a StringBuilder
+        StringBuilder toShow = new StringBuilder();
 
-        int number=200;
-        for (int i =1 ;i<=number;i++) {
-
-            // reinit the String to show;
-            toShow="";
+        for (int i =1 ;i<=200;i++) {
 
             // see if the number is multiple of 3
             if (multipleOf3(i)) {
-                toShow += "Fizz";
+                toShow.append("Fizz");
             }
 
             // see if the number is multiple of 5
             if (multipleOf5(i)) {
-                toShow += "Buzz";
+                toShow.append("Buzz");
             }
 
             // see if the number is multiple of 7
             if (multipleOf7(i)) {
-                toShow += "Rizz";
+                toShow.append("Rizz");
             }
 
             // see if the number is multiple of 11
             if (multipleOf11(i)) {
-                toShow += "Jazz";
+                toShow.append("Jazz");
             }
 
             // see if the number is multiple of 3,5,7 or 11, if not show the number
-            if (toShow.isBlank()) {
-                toShow += i;
+            if (toShow.length() == 0) {
+                toShow.append(i);
             }
 
             System.out.println(i + ": " + toShow);
+
+            // Reset the StringBuilder
+            toShow.setLength(0);
         }
     }
 
