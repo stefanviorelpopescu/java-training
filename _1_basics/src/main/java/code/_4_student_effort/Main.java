@@ -28,14 +28,54 @@ public class Main {
       System.out.println("\n");
     }
 
-    //Ex3
-    System.out.println("Pairof2");
+    //Ex3.0
+    System.out.println("Pairof2 v1.0");
     System.out.println("Dimeniune matrice: ");
     Exercitiul3 sm = new Exercitiul3();
 
     int[] Array = sm.returnSArray();
     int finalCount = sm.returnCount(Array);
     System.out.println("Petrechi: " +finalCount);
+    //Ex3.1
+    System.out.println("Pairof2 v1.1");
+        int[] array=new int[6];
+        int pairs=0;
+        array[0]=1;
+        array[1]=1;
+        array[2]=0;
+        array[3]=-1;
+        array[4]=-1;
+        array[5]=10;
+        for(int i=0;i<array.length-1;i++)
+          for(int j=i+1;j<array.length;j++)
+            if(array[i]+array[j]==0)
+            {
+              pairs++;
+              array[j]=Integer.MAX_VALUE;
+              j=array.length;
+            }
+        System.out.println("Numarul de perechi este:"+pairs);
+      //Ex4
+    int[] array1=new int[6];
+    int pairs1=0;
+    array[0]=-1;
+    array[1]=-1;
+    array[2]=-1;
+    array[3]=2;
+
+    for(int i=0;i<array1.length-2;i++)
+      for(int j=i+1;j<array1.length-1;j++)
+        for(int k=j+1;k<array1.length;k++)
+          if(array1[i]+array1[j]+array1[k]==0)
+          {
+            pairs1++;
+            array1[j]=Integer.MAX_VALUE;
+            array1[k]=Integer.MAX_VALUE;
+            j=array1.length-1;
+            k=array1.length;
+          }
+
+    System.out.println("Numarul de perechi este:"+pairs1);
 
       }
 
@@ -89,7 +129,7 @@ public class Main {
     return s;
   }
 
-  //Ex3
+  //Ex3 v1.0
   public static class Exercitiul3 {
 
     private int[] returnSArray() {
