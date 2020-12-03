@@ -12,58 +12,60 @@ public class SecondChallenge {
 
     public void run(int number) {
 
-        String toShow = "";
-
-        int count =0;
+        StringBuilder toShow = new StringBuilder();
 
         // see if the number is divisible by 3
-        // increase count if does
         if (divisibleBy3(number)) {
-            toShow += "Foo";
-            count++;
+            toShow.append("Foo");
         }
 
         // see if the number is divisible by 5
-        // increase count if does
         if (divisibleBy5(number)) {
-            toShow += "Bar";
-            count++;
+            toShow.append("Bar");
         }
 
         // see if the number is divisible by 7
-        // increase count if does
         if (divisibleBy7(number)) {
-            toShow += "Qix";
-            count++;
+            toShow.append("Qix");
         }
 
-        // if count is 0 we show digits with * if the diggit is 0
-        if (count != 0) {
-            toShow += eachDigitWithDivisors(number);
-        } else {
-            toShow += eachDigitWithoutDivisors(number);
+        // see if the number contains digits
+        toShow.append(eachDigit(number));
+
+        // if the previous stringBuilder contains only asterix, we call a second method to show digit with asterix
+        if (containsOnlyAsterix(toShow) == true) {
+            toShow.setLength(0);
+            toShow.append(eachDigit2(number));
         }
+
+        // if nothing is fiting, we show the number instead
+        if (toShow.length() == 0) {
+            toShow.append(number);
+        }
+
         System.out.println(number + " => " + toShow);
+        toShow.setLength(0);
 
     }
 
-    public String eachDigitWithDivisors(int number) {
+    public StringBuilder eachDigit(int number) {
 
-        String toReturn = "";
+        StringBuilder toReturn = new StringBuilder();
+
         int nod = (int) Math.pow(10,numbersOfDigits(number))/10;
 
         do {
-            int toCheck = number/nod;
+            int toCheck = number / nod;
             nod /= 10;
 
-            if (toCheck%10 == 0) {
-                toReturn += "*";
-            } else if (toCheck%10 == 3) {
-                toReturn += "Foo";
-            } else if (toCheck%10 == 5) {
-                toReturn += "Bar";
-            } else if (toCheck%10 == 7) {
-                toReturn += "Qix";
+            if (toCheck % 10 == 0) {
+                toReturn.append("*");
+            } else if (divisibleBy3(toCheck%10)) {
+                toReturn.append("Foo");
+            } else if (divisibleBy5(toCheck%10)) {
+                toReturn.append("Bar");
+            } else if (divisibleBy7(toCheck%10)) {
+                toReturn.append("Qix");
             }
 
         } while (nod != 0);
@@ -71,19 +73,23 @@ public class SecondChallenge {
         return toReturn;
     }
 
-    public String eachDigitWithoutDivisors(int number) {
+    public StringBuilder eachDigit2(int number) {
 
-        String toReturn = "";
+        StringBuilder toReturn = new StringBuilder();
 
-        while (number>0) {
-            if (number%10 == 0) {
-                toReturn += "*";
+        int nod = (int) Math.pow(10,numbersOfDigits(number))/10;
+
+        do {
+            int toCheck = number / nod;
+            nod /= 10;
+
+            if (toCheck % 10 == 0) {
+                toReturn.append("*");
             } else {
-                toReturn += number%10;
+                toReturn.append(toCheck%10);
             }
 
-            number/=10;
-        }
+        } while (nod != 0);
 
         return toReturn;
 
@@ -98,6 +104,17 @@ public class SecondChallenge {
         }
 
         return count;
+    }
+
+    public boolean containsOnlyAsterix(StringBuilder stringBuilder) {
+
+        for (int i=0;i<stringBuilder.length();i++) {
+            if (stringBuilder.charAt(i) != '*') {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public boolean divisibleBy3(int number) {
