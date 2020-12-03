@@ -18,7 +18,7 @@ public class Studio {
         return nume;
     }
 
-    public Film getFilme(int index) {
-        return filme[index];
+    public Film[] getFilme() {
+        return filme;
     }
 }

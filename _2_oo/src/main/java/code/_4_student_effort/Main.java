@@ -1,5 +1,8 @@
 package code._4_student_effort;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
   public static void CodeChallenge1() {
@@ -35,30 +38,29 @@ public class Main {
     Studio studio1 = new Studio("MGM", new Film[]{film1, film2});
     Studio studio2 = new Studio("Disney", new Film[]{film3, film4, film5});
 
+    ArrayList<Studio> studios = new ArrayList<>();
+    studios.add(studio1);
+    studios.add(studio2);
+
     // Get all studio names that have published more than 2 movies
-    Studio arrayStudio[] = new Studio[]{studio1, studio2};
-    String firstObjective = "";
-    for (int i = 0; i < arrayStudio.length; i++) {
-      if (arrayStudio[i].getNumbersOfFilms() > 2) {
-        firstObjective += arrayStudio[i].getNume() + " ";
+    StringBuilder firstObjective = new StringBuilder();
+    for (Studio studio: studios) {
+      if (studio.getNumbersOfFilms() > 2) {
+        if (firstObjective.indexOf(studio.getNume()) == -1) {
+          firstObjective.append(studio.getNume());
+        }
       }
     }
     System.out.println(firstObjective + "\n");
 
-    // Get the studio names in witch plays the actor with name "actor cu 2 oscaruri"
-    String secondObjective = "";
-
-    // how many studios we have
-    for (int i = 0; i < arrayStudio.length; i++) {
-      // for every studio how many films exists
-      for (int j = 0; j < arrayStudio[i].getNumbersOfFilms(); j++) {
-        // for every film how many actors played
-        for (int k = 0; k < arrayStudio[i].getFilme(j).getLenghtOfActori(); k++) {
-          // we search for our actor
-          if (arrayStudio[i].getFilme(j).getActori(k).getNume() == "actor cu 2 oscaruri") {
-            // search to find if the studio is already in our string
-            if (!secondObjective.contains(arrayStudio[i].getNume())) {
-              secondObjective += arrayStudio[i].getNume() + " ";
+    // Get all studio names in witch plays the actor with name "actor cu 2 oscaruri:
+    StringBuilder secondObjective = new StringBuilder();
+    for(Studio studio: studios) {
+      for (Film film: studio.getFilme()) {
+        for (Actor actor: film.getActori()) {
+          if (actor.getNume() == "actor cu 2 oscaruri") {
+            if (secondObjective.indexOf(studio.getNume()) == -1) {
+              secondObjective.append(studio.getNume());
             }
           }
         }
@@ -66,25 +68,22 @@ public class Main {
     }
     System.out.println(secondObjective + "\n");
 
-    // get movie names in witch plays at least an actor with age above 50
-    String thirdObjective = "";
-
-    // how many studios we have
-    for (int i = 0; i < arrayStudio.length; i++) {
-      // for every studio how many films exists
-      for (int j = 0; j < arrayStudio[i].getNumbersOfFilms(); j++) {
-        // for every film how many actors played
-        for (int k = 0; k < arrayStudio[i].getFilme(j).getLenghtOfActori(); k++) {
-          // search to find if the movies has any actors with age above 50
-          if (arrayStudio[i].getFilme(j).getActori(k).getVarsta() > 50) {
-            if (!thirdObjective.contains(arrayStudio[i].getFilme(j).getNume())) {
-              thirdObjective += arrayStudio[i].getFilme(j).getNume() + "\n";
+    // Get movie names in witch plays at least an actor with age above 50
+    StringBuilder thirdObjective = new StringBuilder();
+    for(Studio studio: studios) {
+      for(Film film: studio.getFilme()) {
+        for (Actor actor: film.getActori()) {
+          if (actor.getVarsta() > 50) {
+            if (thirdObjective.indexOf(film.getNume()) == -1) {
+              thirdObjective.append(film.getNume()).append("\n");
             }
           }
         }
       }
     }
     System.out.println(thirdObjective);
+
+
   }
 
 
@@ -136,7 +135,7 @@ public class Main {
     //TODO put your code changes in here
 
     //CodeChallenge1();
-    //CodeChallenge2();
-    CodeChallenge3();
+    CodeChallenge2();
+    //CodeChallenge3();
   }
 }

@@ -12,13 +12,10 @@ public class Film {
         this.actori = actori;
     }
 
-    public Actor getActori(int index) {
-        return actori[index];
+    public Actor[] getActori() {
+        return actori;
     }
 
-    public int getLenghtOfActori() {
-        return actori.length;
-    }
 
     public String getNume() {
         return nume;
