@@ -38,7 +38,7 @@ public class Main {
     Studio studio1 = new Studio("MGM", new Film[]{film1, film2});
     Studio studio2 = new Studio("Disney", new Film[]{film3, film4, film5});
 
-    ArrayList<Studio> studios = new ArrayList<>();
+    List<Studio> studios = new ArrayList<>();
     studios.add(studio1);
     studios.add(studio2);
 
