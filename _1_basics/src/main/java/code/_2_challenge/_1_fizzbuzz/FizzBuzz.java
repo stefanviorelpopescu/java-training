@@ -4,7 +4,6 @@ public class FizzBuzz {
 
   public String fizzBuzz(int i) {
     String s = "";
-
     NumberWordCorrelation[] correlations = {
             new NumberWordCorrelation(3, "Fizz"),
             new NumberWordCorrelation(5, "Buzz"),
@@ -43,8 +42,6 @@ public class FizzBuzz {
     if (!isDivisible) {
       s = String.valueOf(i);
     }
-
-
     return s;
   }
 }

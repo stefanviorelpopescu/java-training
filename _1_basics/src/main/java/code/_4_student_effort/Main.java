@@ -28,14 +28,20 @@ public class Main {
       System.out.println("\n");
     }
 
+<<<<<<< HEAD
     //Ex3.0
     System.out.println("Pairof2 v1.0");
+=======
+    //Ex3
+    System.out.println("Pairof2");
+>>>>>>> 9281312357dade82161b9109fc3f4c8c157eb127
     System.out.println("Dimeniune matrice: ");
     Exercitiul3 sm = new Exercitiul3();
 
     int[] Array = sm.returnSArray();
     int finalCount = sm.returnCount(Array);
     System.out.println("Petrechi: " +finalCount);
+<<<<<<< HEAD
     //Ex3.1
     System.out.println("Pairof2 v1.1");
         int[] array=new int[6];
@@ -76,6 +82,8 @@ public class Main {
           }
 
     System.out.println("Numarul de perechi este:"+pairs1);
+=======
+>>>>>>> 9281312357dade82161b9109fc3f4c8c157eb127
 
       }
 
@@ -129,7 +137,11 @@ public class Main {
     return s;
   }
 
+<<<<<<< HEAD
   //Ex3 v1.0
+=======
+  //Ex3
+>>>>>>> 9281312357dade82161b9109fc3f4c8c157eb127
   public static class Exercitiul3 {
 
     private int[] returnSArray() {
