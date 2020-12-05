@@ -10,6 +10,7 @@ import code._4_student_effort.Challenge4.Student;
 import code._4_student_effort.Challenge4.Teacher;
 import code._4_student_effort.Challenge5.AscBubleSort;
 import code._4_student_effort.Challenge5.DescBubleSort;
+import code._4_student_effort.Challenge6.Person;
 
 import java.util.Arrays;
 
@@ -101,6 +102,13 @@ public class Main {
   }
 
   public static void CodeChallenge6() {
+
+    Person first = new Person.Builder("Johnuletz")
+            .withJob("Continental")
+            .withDrivingLicense(true)
+            .withMaried(false)
+            .withUniversity("Gheorghe Asachi Technical University")
+            .build();
 
   }
 
