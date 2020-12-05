@@ -1,5 +1,14 @@
 package code._4_student_effort;
 
+import code._4_student_effort.Challenge1.ArrayCustomIterator;
+import code._4_student_effort.Challenge2.BubbleSort;
+import code._4_student_effort.Challenge2.SortingStrategy;
+import code._4_student_effort.Challenge2.MergeSort;
+import code._4_student_effort.Challenge3.Apartment;
+import code._4_student_effort.Challenge3.RealEstateAgentProxy;
+import code._4_student_effort.Challenge4.Student;
+import code._4_student_effort.Challenge4.Teacher;
+
 import java.util.Arrays;
 
 public class Main {
@@ -41,8 +50,8 @@ public class Main {
     proxy.represent(app04);
     proxy.represent(app05);
 
-    Student student01 = new Student("Ionescu", 500);
-    Student student02 = new Student("Popescu", 330);
+    code._4_student_effort.Challenge3.Student student01 = new code._4_student_effort.Challenge3.Student("Ionescu", 500);
+    code._4_student_effort.Challenge3.Student student02 = new code._4_student_effort.Challenge3.Student("Popescu", 330);
 
     Apartment apartmentForStudent01 = proxy.rent(student01);
     System.out.println(student01 + " rented " + apartmentForStudent01);
@@ -52,16 +61,39 @@ public class Main {
 
   public static void CodeChallenge4() {
 
+    Teacher teacher = new Teacher();
+    Student s01 = new Student("Popescu");
+    Student s02 = new Student("Ionescu");
+    Student s03 = new Student("Dragomirescu");
+
+    s01.listenTo(teacher);
+    s02.listenTo(teacher);
+    s03.listenTo(teacher);
+
+    String[] javaTopics = new String[] {
+            "basics",
+            "oo",
+            "design patterns"
+    };
+
+    for (int i=0;i<javaTopics.length;i++) {
+      teacher.tech(javaTopics[i]);
+    }
+
   }
+
+
 
   public static void main(String[] args) {
     //TODO put your code changes in here
 
     //CodeChallenge1();
     //CodeChallenge2();
-    CodeChallenge3();
-    //CodeChallenge4();
+    //CodeChallenge3();
+    CodeChallenge4();
   }
+
+
 
   public static void displaySorted(SortingStrategy strategy, Integer[] arr) {
 
