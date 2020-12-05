@@ -69,8 +69,10 @@ public class Main {
     for (Studio studio :studios) {
       for(Film film : studio.getFilme())
         for(Actor actor : film.getActori())
-          if(actor.getVarsta() > 50)
+          if(actor.getVarsta() > 50) {
             System.out.println(film.getNume());
+            break;
+          }
     }
   }
 
