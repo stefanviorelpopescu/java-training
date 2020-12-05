@@ -8,6 +8,8 @@ import code._4_student_effort.Challenge3.Apartment;
 import code._4_student_effort.Challenge3.RealEstateAgentProxy;
 import code._4_student_effort.Challenge4.Student;
 import code._4_student_effort.Challenge4.Teacher;
+import code._4_student_effort.Challenge5.AscBubleSort;
+import code._4_student_effort.Challenge5.DescBubleSort;
 
 import java.util.Arrays;
 
@@ -79,6 +81,26 @@ public class Main {
     for (int i=0;i<javaTopics.length;i++) {
       teacher.tech(javaTopics[i]);
     }
+  }
+
+  public static void CodeChallenge5() {
+
+    Integer[] arr = new Integer[] {1,4,5,2,3,6,9,8,7};
+    Integer[] copy01OfArr = Arrays.copyOf(arr, arr.length);
+    Integer[] copy02OfArr = Arrays.copyOf(arr, arr.length);
+
+    AscBubleSort asc = new AscBubleSort();
+    asc.sort(copy01OfArr);
+
+    DescBubleSort desc = new DescBubleSort();
+    desc.sort(copy02OfArr);
+
+    displaySortedChallenge5(copy01OfArr);
+    displaySortedChallenge5(copy02OfArr);
+
+  }
+
+  public static void CodeChallenge6() {
 
   }
 
@@ -90,7 +112,9 @@ public class Main {
     //CodeChallenge1();
     //CodeChallenge2();
     //CodeChallenge3();
-    CodeChallenge4();
+    //CodeChallenge4();
+    CodeChallenge5();
+    //CodeChallenge6();
   }
 
 
@@ -99,5 +123,12 @@ public class Main {
 
     strategy.sort(arr);
     System.out.println(Arrays.toString(arr));
+  }
+
+  public static void displaySortedChallenge5(Integer[] arr) {
+    for (int i=0;i<arr.length;i++) {
+      System.out.print(arr[i] + " ");
+    }
+    System.out.println();
   }
 }
