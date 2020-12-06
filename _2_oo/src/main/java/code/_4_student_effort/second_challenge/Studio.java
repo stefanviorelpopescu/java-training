@@ -1,6 +1,8 @@
 package second_challenge;
 
-public class Studio {
+import java.util.List;
+import java.math.*;
+public class Studio implements Cloneable{
 
     private String nume;
     private Film[] filme;
