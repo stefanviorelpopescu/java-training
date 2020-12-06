@@ -10,8 +10,10 @@ import code._4_student_effort.Challenge4.Student;
 import code._4_student_effort.Challenge4.Teacher;
 import code._4_student_effort.Challenge5.AscBubleSort;
 import code._4_student_effort.Challenge5.DescBubleSort;
-import code._4_student_effort.Challenge6.Person;
+//import code._4_student_effort.Challenge6.Person;
 import code._4_student_effort.HardChallenge1.*;
+import code._4_student_effort.HardChallenge2.IPerson;
+import code._4_student_effort.HardChallenge2.Person;
 
 import java.util.Arrays;
 
@@ -104,13 +106,15 @@ public class Main {
 
   public static void CodeChallenge6() {
 
+      /*
+      // must uncomment first import because i have 2 classes Person in 2 different packages
     Person first = new Person.Builder("Johnuletz")
             .withJob("Continental")
             .withDrivingLicense(true)
             .withMaried(false)
             .withUniversity("Gheorghe Asachi Technical University")
             .build();
-
+    */
   }
 
   public static void HardChallenge1() {
@@ -128,6 +132,12 @@ public class Main {
   }
 
   public static void HardChallenge2() {
+      IPerson person = new Person.Builder()
+              .withName("Duke")
+              .build();
+
+      person.walk();
+      person.drink();
 
   }
 
@@ -142,8 +152,8 @@ public class Main {
     //CodeChallenge4();
     //CodeChallenge5();
     //CodeChallenge6();
-    HardChallenge1();
-    //HardChallenge2();
+    //HardChallenge1();
+    HardChallenge2();
   }
 
 
