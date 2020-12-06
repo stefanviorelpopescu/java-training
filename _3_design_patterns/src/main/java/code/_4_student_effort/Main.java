@@ -11,6 +11,7 @@ import code._4_student_effort.Challenge4.Teacher;
 import code._4_student_effort.Challenge5.AscBubleSort;
 import code._4_student_effort.Challenge5.DescBubleSort;
 import code._4_student_effort.Challenge6.Person;
+import code._4_student_effort.HardChallenge1.*;
 
 import java.util.Arrays;
 
@@ -112,6 +113,24 @@ public class Main {
 
   }
 
+  public static void HardChallenge1() {
+    DecorableTree christmasTree = new ChristmasTree();
+    DecorableTree decoratedTree = christmasTree;
+
+    decoratedTree = new Garland(8, decoratedTree);
+    decoratedTree = new Candy(3, decoratedTree);
+    decoratedTree = new Bulb(6, decoratedTree);
+
+    decoratedTree.display();
+    System.out.println("\n\n");
+    christmasTree.display();
+
+  }
+
+  public static void HardChallenge2() {
+
+  }
+
 
 
   public static void main(String[] args) {
@@ -121,8 +140,10 @@ public class Main {
     //CodeChallenge2();
     //CodeChallenge3();
     //CodeChallenge4();
-    CodeChallenge5();
+    //CodeChallenge5();
     //CodeChallenge6();
+    HardChallenge1();
+    //HardChallenge2();
   }
 
 
