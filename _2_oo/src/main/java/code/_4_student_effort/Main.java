@@ -13,12 +13,14 @@ public class Main {
 //        System.out.println("Studio with more than 2 movies: "+ studio.nume);
 //      }
 
- //     for(Film film : studio.filme){
- //       for(Actor actor : film.actori){
- //       if(actor.nume.equals("actor cu 2 oscaruri"))
- //           System.out.println("Studio with an actor with 2 oscars: "+studio.nume);
- //         if(actor.varsta > 50)
- //           System.out.println("Film with actors that are over 50 years old: "+film.nume);
+    //     for(Film film : studio.filme){
+    //       for(Actor actor : film.actori){
+    //       if(actor.nume.equals("actor cu 2 oscaruri"))
+    //           System.out.println("Studio with an actor with 2 oscars: "+studio.nume);
+    //         if(actor.varsta > 50){
+    //           System.out.println("Film with actors that are over 50 years old: "+film.nume);
+   //             break;
+    //             }
  //       }
 
  //     }
