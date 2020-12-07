@@ -1,4 +1,4 @@
-package code._4_student_effort;
+package code._4_student_effort.challenge3;
 
 public abstract class Animal {
     protected Integer legs;
@@ -9,7 +9,7 @@ public abstract class Animal {
 
     abstract void eat();
     public void walk() {
-        System.out.println("Walks using " + legs + "legs");
+        System.out.println("Walks using " + legs + " legs");
     }
 
 }

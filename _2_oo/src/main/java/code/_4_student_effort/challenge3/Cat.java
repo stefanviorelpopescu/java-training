@@ -1,4 +1,4 @@
-package code._4_student_effort;
+package code._4_student_effort.challenge3;
 
 public class Cat extends Animal implements Pet {
     String name;
@@ -8,12 +8,13 @@ public class Cat extends Animal implements Pet {
         this.name = name;
     }
 
-/*    public Cat(){
-        this.Cat("");
-    }*/
+    public Cat() {
+        this("");
+    }
 
     @Override
     void eat() {
+        System.out.println("Cat " + name + " is eating");
     }
 
     @Override
@@ -22,10 +23,12 @@ public class Cat extends Animal implements Pet {
     }
 
     @Override
-    public void setName() {
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public void play() {
+        System.out.println("Cat " + name + " is playing");
     }
 }

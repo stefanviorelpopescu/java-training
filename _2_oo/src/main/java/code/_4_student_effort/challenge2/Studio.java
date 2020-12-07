@@ -1,4 +1,6 @@
-package code._4_student_effort;
+package code._4_student_effort.challenge2;
+
+import code._4_student_effort.challenge2.Film;
 
 public class Studio {
     String nume;
