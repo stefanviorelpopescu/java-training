@@ -1,7 +1,7 @@
 import java.util.HashMap;
 public class Pairof2 {
     public static void main(String[] args) {
-        int arr[] = new int[]{5, 9, -5, 7, -5};
+        int arr[] = new int[]{5, -5, 5, 5, 9, 7};
         HashMap<Integer, Integer> hm = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
             if(!hm.containsKey(arr[i])) {
