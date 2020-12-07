@@ -11,9 +11,9 @@ public class Main {
     BoxingMatch boxingMatch = new BoxingMatch(f1,f2);
     System.out.println(boxingMatch.fight());
 
-    studiosWithMoreThanTwoMovies();
+    //studiosWithMoreThanTwoMovies();
 
-    studioWithNamedActor();
+    //studioWithNamedActor();
 
     moviesWithActorsOverFifty();
 

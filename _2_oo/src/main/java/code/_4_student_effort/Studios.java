@@ -1,5 +1,9 @@
 package code._4_student_effort;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 public class Studios {
 
     public static Studio[] getStudios(){
@@ -49,14 +53,18 @@ public class Studios {
     }
 
     public static void moviesWithActorsOverFifty(){
+        Set<String> set = new HashSet<>();
         for(Studio studio : getStudios()){
             for(Film film : studio.filme){
                 for(Actor actor : film.actori){
                     if(actor.varsta > 50){
-                        System.out.println(film.nume);
+                        set.add(film.nume);
                     }
                 }
             }
+        }
+        for (String s : set) {
+            System.out.println(s);
         }
     }
 }
