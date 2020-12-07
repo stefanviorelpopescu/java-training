@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class ArrayCustomIterator {
 
+    int[] arr;
+    int i = 0;
 
     boolean hasNext() {
         return this.i < this.arr.length;
