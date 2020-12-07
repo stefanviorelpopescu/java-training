@@ -80,51 +80,50 @@ public class Main {
     //3. Get the movie names in which plays at least an actor with age above 50.
     List<Actor> actorListAgeAbove50 = new ArrayList<Actor>(); //it will be created a list that contains the actors with age above 50
     for (Actor act : actors) {
-      if (act.varsta>50) {
+      if (act.varsta > 50) {
         actorListAgeAbove50.add(act);
       }
     }
     List<Film> specificFilmList = new ArrayList<Film>(); //it will be created a list that contains the films in which plays at least an actor with age above 50
-    for(Actor a:actorListAgeAbove50) {
+    for (Actor a : actorListAgeAbove50) {
       for (Film f : film) {
         for (Actor ac : f.actori) {
-          if (ac.equals(a))
+          if (ac.equals(a) && !specificFilmList.contains(f))
             specificFilmList.add(f);
         }
       }
     }
 
-    for(Film movie:specificFilmList)
+    for (Film movie : specificFilmList)
       System.out.println(movie.nume);
-
   }
 
-  //Code Challenge 3
-  public static void TestAnimals(){
-    Fish d = new Fish();
-    Cat c = new Cat("Fluffy");
-    Animal a = new Fish();
-    Animal e = new Spider();
-    Pet p = new Cat();
+    //Code Challenge 3
+    public static void TestAnimals () {
+      Fish d = new Fish();
+      Cat c = new Cat("Fluffy");
+      Animal a = new Fish();
+      Animal e = new Spider();
+      Pet p = new Cat();
 
-    d.eat();
-    d.walk();
-    c.play();
-    a.eat();
-    a.walk();
-    e.eat();
-    e.walk();
-    p.play();
+      d.eat();
+      d.walk();
+      c.play();
+      a.eat();
+      a.walk();
+      e.eat();
+      e.walk();
+      p.play();
 
-    //cast
-    String x = "4";
-    int n = Integer.parseInt(x);
-    System.out.println("The number of legs for a Cat object:"+n);
+      //cast
+      String x = "4";
+      int n = Integer.parseInt(x);
+      System.out.println("The number of legs for a Cat object:" + n);
 
 
-  }
-  public static void main(String[] args) {
-    //TODO put your code changes in here
+    }
+    public static void main (String[]args){
+      //TODO put your code changes in here
 
       codeChallenge1();
       codeChallenge2();
@@ -132,5 +131,6 @@ public class Main {
       TestAnimals();
 
 
+    }
   }
-}
+
