@@ -31,4 +31,5 @@ public class Cat extends Animal implements Pet {
   public void play() {
     System.out.println("cat " + name + " is playing");
   }
+
 }
