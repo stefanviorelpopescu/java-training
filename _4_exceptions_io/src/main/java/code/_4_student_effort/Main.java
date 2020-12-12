@@ -10,7 +10,8 @@ public class Main {
   public static void main(String[] args) {
     //TODO put your code changes in here
     //challenge1();
-    challenge2();
+    //challenge2();
+    challenge3();
   }
 
   public static void challenge1() {
@@ -61,4 +62,34 @@ public class Main {
     System.out.println(toShow);
   }
 
+  public static void challenge3() {
+
+    BufferedReader file;
+    String anagram = "listen";
+
+    try {
+      file = new BufferedReader(new FileReader("_test_files\\in\\big_list.txt"));
+      String line;
+      boolean ok;
+
+      while ( (line=file.readLine()) != null) {
+        if (line.length() == anagram.length()) {
+          ok=true;
+          for (int i=0;i<anagram.length();i++) {
+            if (line.indexOf(anagram.charAt(i)) == -1) {
+              ok = false;
+              break;
+            }
+          }
+          if (ok) {
+            System.out.println(line);
+          }
+        }
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+  }
 }
