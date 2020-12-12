@@ -9,7 +9,8 @@ public class Main {
 
   public static void main(String[] args) {
     //TODO put your code changes in here
-    challenge1();
+    //challenge1();
+    challenge2();
   }
 
   public static void challenge1() {
@@ -33,6 +34,31 @@ public class Main {
       e.printStackTrace();
     }
 
+  }
+
+  public static void challenge2() {
+    FileReader file;
+    StringBuilder toShow = new StringBuilder();
+
+    try {
+      int c;
+      file = new FileReader("_test_files\\in\\message.txt");
+
+      while ( (c=file.read()) != -1 ) {
+        if (c >= 65 && c <= 90) {
+          if (c == 88) {    // X = 88
+            toShow.append(" ");
+          } else {
+            toShow.append(Character.toChars(c));
+          }
+        }
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    System.out.println(toShow);
   }
 
 }
