@@ -1,7 +1,9 @@
 package code._4_student_effort;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,15 +66,17 @@ public class Main {
 
   public static void challenge3() {
 
-    BufferedReader file;
+    BufferedReader fileRead;
+    BufferedWriter fileWrite;
     String anagram = "listen";
 
     try {
-      file = new BufferedReader(new FileReader("_test_files\\in\\big_list.txt"));
+      fileRead = new BufferedReader(new FileReader("_test_files\\in\\big_list.txt"));
+      fileWrite = new BufferedWriter(new FileWriter("_test_files\\in\\output.txt"));
       String line;
       boolean ok;
 
-      while ( (line=file.readLine()) != null) {
+      while ( (line=fileRead.readLine()) != null) {
         if (line.length() == anagram.length()) {
           ok=true;
           for (int i=0;i<anagram.length();i++) {
@@ -83,9 +87,13 @@ public class Main {
           }
           if (ok) {
             System.out.println(line);
+            fileWrite.write(line + "\n");
           }
         }
       }
+
+      fileRead.close();
+      fileWrite.close();
 
     } catch (Exception e) {
       e.printStackTrace();
