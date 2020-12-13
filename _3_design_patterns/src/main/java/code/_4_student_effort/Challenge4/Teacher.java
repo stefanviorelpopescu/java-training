@@ -8,9 +8,7 @@ public class Teacher implements ObservedSubject{
     private List<Observer> observerList = new ArrayList<>();
 
     public void tech(String topic) {
-        for (Observer obs: observerList) {
-            obs.update(topic);
-        }
+        notifyObservers(topic);
     }
 
     @Override
