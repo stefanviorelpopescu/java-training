@@ -8,7 +8,7 @@ public class Person {
     private boolean drivingLicense;
     private boolean isMaried;
 
-    public Person(Builder builder) {
+    private Person(Builder builder) {
         this.name = builder.name;
         this.job = builder.job;
         this.university = builder.university;
