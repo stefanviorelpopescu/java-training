@@ -14,7 +14,8 @@ public class RealEstateAgentProxy {
     public Apartment rent(Student student) {
         Apartment toRent = null;
 
-        int index=0;
+        appartments.sort((o1, o2) -> Integer.compare(o2.getMoney(), o1.getMoney()));
+
         if (!student.getName().startsWith("P")) {
             for (Apartment app: appartments) {
                 if (app.getMoney() < student.getMoney()) {
