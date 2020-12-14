@@ -12,9 +12,9 @@ public class Main {
     //TODO put your code changes in here
     //challenge1();
     //challenge2();
-    //challenge3();
+    challenge3();
     //challenge4();
-      challenge5();
+      // challenge5();
   }
 
   public static void challenge1() {
@@ -65,30 +65,31 @@ public class Main {
     System.out.println(toShow);
   }
 
+  private static boolean sameChars(String firstString, String secondString) {
+      char[] first = firstString.toCharArray();
+      char[] second = secondString.toCharArray();
+
+      Arrays.sort(first);
+      Arrays.sort(second);
+
+      return Arrays.equals(first,second);
+  }
+
   public static void challenge3() {
 
     BufferedReader fileRead;
     BufferedWriter fileWrite;
-    String anagram = "listen";
+    String anagram = "llisten";
 
     try {
       fileRead = new BufferedReader(new FileReader("_test_files\\in\\big_list.txt"));
       fileWrite = new BufferedWriter(new FileWriter("_test_files\\in\\output.txt"));
       String line;
-      boolean ok;
 
       while ( (line=fileRead.readLine()) != null) {
         if (line.length() == anagram.length()) {
-          ok=true;
-          for (int i=0;i<anagram.length();i++) {
-            if (line.indexOf(anagram.charAt(i)) == -1) {
-              ok = false;
-              break;
-            }
-          }
-          if (ok) {
-            System.out.println(line);
-            fileWrite.write(line + "\n");
+          if (sameChars(line, anagram)) {
+              System.out.println(line);
           }
         }
       }
