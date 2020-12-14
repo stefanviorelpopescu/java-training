@@ -31,8 +31,6 @@ public class Teacher implements ObservedSubject {
     }
 
     public void teach(String topic) {
-        for (Observer observer : observers) {
-            observer.update(topic);
-        }
+        notifyObservers(topic);
     }
 }
