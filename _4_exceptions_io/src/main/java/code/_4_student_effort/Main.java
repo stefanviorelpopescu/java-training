@@ -12,9 +12,9 @@ public class Main {
     //TODO put your code changes in here
     //challenge1();
     //challenge2();
-    challenge3();
+    //challenge3();
     //challenge4();
-      // challenge5();
+      challenge5();
   }
 
   public static void challenge1() {
@@ -201,10 +201,10 @@ public class Main {
               stringArray = line.split(" ");
               // go through the array
               for (String i : stringArray) {
-                  // remove punctuation
-                  i = i.replaceAll("[^a-zA-Z]", "");
+                  // remove characters ",", ".", "!", "?".
+                  i = i.replaceAll("[,.!?]","");
                   // check if already exists in map and increment value
-                  if (map.containsKey(i)) {
+                  if (map.containsKey(i) && !i.equals("")) {
                       count = map.get(i);
                       map.replace(i, ++count);
                   } else {  // put into map
