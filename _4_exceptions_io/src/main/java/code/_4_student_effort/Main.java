@@ -105,7 +105,57 @@ public class Main {
 
   public static void challenge4() {
 
+      BufferedReader fileInput;
 
+      try {
+          fileInput = new BufferedReader(new FileReader("_test_files\\in\\input_number.txt"));
+
+          String line = fileInput.readLine();
+          int numberOfChars = line.length();
+
+          int[][][] chars = new int[numberOfChars][3][3];
+
+          int[][] one = {{0, 0, 0}, {0, 0, 1}, {0, 0, 1}};
+          int[][] two = {{0, 1, 0}, {0, 1, 1}, {1, 1, 0}};
+          int[][] three = {{0, 1, 0}, {0, 1, 1}, {0, 1, 1}};
+          int[][] four = {{0, 0, 0}, {1, 1, 1}, {0, 0, 1}};
+          int[][] five = {{0, 1, 0}, {1, 1, 0}, {0, 1, 1}};
+          int[][] six = {{0, 1, 0}, {1, 1, 0}, {1, 1, 1}};
+          int[][] seven = {{0, 1, 0}, {0, 0, 1}, {0, 0, 1}};
+          int[][] eight = {{0, 1, 0}, {1, 1, 1}, {1, 1, 1}};
+          int[][] nine = {{0, 1, 0}, {1, 1, 1}, {0, 1, 1}};
+          int[][] zero = {{0, 1, 0}, {1, 0, 1}, {1, 1, 1}};
+
+          for (int i = 0; i < numberOfChars; i++) {
+              if (line.charAt(i) == '1') chars[i] = one;
+              else if (line.charAt(i) == '2') chars[i] = two;
+              else if (line.charAt(i) == '3') chars[i] = three;
+              else if (line.charAt(i) == '4') chars[i] = four;
+              else if (line.charAt(i) == '5') chars[i] = five;
+              else if (line.charAt(i) == '6') chars[i] = six;
+              else if (line.charAt(i) == '7') chars[i] = seven;
+              else if (line.charAt(i) == '8') chars[i] = eight;
+              else if (line.charAt(i) == '9') chars[i] = nine;
+              else if (line.charAt(i) == '0') chars[i] = zero;
+              else chars[i] = four;
+          }
+
+          for (int j = 0; j < 3; j++) {
+              for (int i = 0; i < numberOfChars; i++) {
+                  for (int k = 0; k < 3; k++) {
+                      if (chars[i][j][k] == 1) {
+                          if (k == 1) System.out.print("_");
+                          else System.out.print("|");
+                      } else System.out.print(" ");
+                  }
+                  System.out.print(" ");
+              }
+              System.out.print("\n");
+
+          }
+      }catch (Exception e) {
+          e.printStackTrace();
+      }
   }
 
   public static Map<String, Integer> sortMapByValue(Map<String, Integer> unsortedMap) {
