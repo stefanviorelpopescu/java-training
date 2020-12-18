@@ -4,13 +4,16 @@ import code._4_student_effort.Challenge2.Boot;
 import code._4_student_effort.Challenge2.Pair;
 import code._4_student_effort.Challenge2.Running;
 import code._4_student_effort.Challenge3.GenericList;
+import code._4_student_effort.Challenge4.ArrayIterator;
+import code._4_student_effort.Challenge4.IArrayIterator;
 
 public class Main {
 
   public static void main(String[] args) {
     //TODO put your code changes in here
     //challenge2();
-    challenge3();
+    //challenge3();
+    challenge4();
   }
 
   public static void challenge2() {
@@ -42,5 +45,14 @@ public class Main {
     }
 
     list.println();
+  }
+
+  public static void challenge4() {
+
+    Integer[] arr = new Integer[] {1,2,3};
+    IArrayIterator<Integer> it = new ArrayIterator<>(arr);
+    while (it.hasNext()) {
+      System.out.println(it.next());
+    }
   }
 }
