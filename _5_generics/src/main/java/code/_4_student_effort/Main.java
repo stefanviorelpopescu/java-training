@@ -1,5 +1,8 @@
 package code._4_student_effort;
 
+import code._4_student_effort.Challenge1.ExchangeDesk;
+import code._4_student_effort.Challenge1.RON;
+import code._4_student_effort.Challenge1.USD;
 import code._4_student_effort.Challenge2.Boot;
 import code._4_student_effort.Challenge2.Pair;
 import code._4_student_effort.Challenge2.Running;
@@ -8,14 +11,26 @@ import code._4_student_effort.Challenge4.ArrayIterator;
 import code._4_student_effort.Challenge4.IArrayIterator;
 import code._4_student_effort.Challenge5.BinarySearch;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class Main {
 
   public static void main(String[] args) {
     //TODO put your code changes in here
+    challenge1();
     //challenge2();
     //challenge3();
     //challenge4();
-    challenge5();
+    //challenge5();
+  }
+
+  public static void challenge1() {
+      ExchangeDesk exchangeDesk = new ExchangeDesk();
+
+      RON lei = new RON(1_000);
+      USD dollar = exchangeDesk.convert(lei, USD.class, 0.24);
+
+      System.out.println(dollar.getSum());
   }
 
   public static void challenge2() {
