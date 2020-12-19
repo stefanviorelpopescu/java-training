@@ -6,6 +6,7 @@ import code._4_student_effort.Challenge2.Running;
 import code._4_student_effort.Challenge3.GenericList;
 import code._4_student_effort.Challenge4.ArrayIterator;
 import code._4_student_effort.Challenge4.IArrayIterator;
+import code._4_student_effort.Challenge5.BinarySearch;
 
 public class Main {
 
@@ -13,7 +14,8 @@ public class Main {
     //TODO put your code changes in here
     //challenge2();
     //challenge3();
-    challenge4();
+    //challenge4();
+    challenge5();
   }
 
   public static void challenge2() {
@@ -54,5 +56,24 @@ public class Main {
     while (it.hasNext()) {
       System.out.println(it.next());
     }
+  }
+
+  public static void challenge5() {
+
+      Integer[] arr01 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+      Integer[] arr02 = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+      Integer[] arr03 = {0, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+      BinarySearch<Integer> list01 = new BinarySearch<>(arr01);
+      BinarySearch<Integer> list02 = new BinarySearch<>(arr02);
+      BinarySearch<Integer> list03 = new BinarySearch<>(arr03);   // throw exception because its not sorted
+
+      System.out.println(list01.search(1));       // true
+      System.out.println(list01.search(5));       // true
+      System.out.println(list01.search(11));      // false
+      System.out.println(list01.search(0));       // false
+      System.out.println(list02.search(11));      // false
+      System.out.println(list02.search(7));       // true
+      System.out.println(list02.search(-2));      // false
   }
 }
