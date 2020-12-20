@@ -76,40 +76,90 @@ public class Main {
     return (c >= 65 && c <= 90);
   }
 
-static void challenge3() {
+  public static void challenge3() {
 
-  BufferedReader file;
-  BufferedReader fileRead;
-  String anagram = "listen";
+    List<String> anagrams = findAnagrams("listen", "_4_exceptions_io\\_test_files\\in\\big_list.txt");
+    try {
+      writeWords(anagrams, "_4_exceptions_io\\_test_files\\out\\output.txt");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
-  try {
-    file = new BufferedReader(new FileReader("_4_exceptions_io\\_test_files\\in\\big_list.txt"));
-    fileRead = new BufferedReader(new FileReader("_4_exceptions_io\\_test_files\\in\\big_list.txt"));
-    String line;
-    boolean ok;
+  public static List<String> readWords(String pathFile) {
+    List <String> words = new ArrayList<>();
 
-    while ((line = file.readLine()) != null) {
-      while ((line = fileRead.readLine()) != null) {
-        if (line.length() == anagram.length()) {
-          ok = true;
-          for (int i = 0; i < anagram.length(); i++) {
-            if (line.indexOf(anagram.charAt(i)) == -1) {
-              ok = false;
-              break;
-            }
-          }
-            if (ok) {
-              System.out.println(line);
-            }
+    try(Scanner s = new Scanner(new BufferedReader(new FileReader(pathFile)))) {
+      while (s.hasNextLine()) {
+        String line = s.nextLine().toLowerCase();
+        String[] lineWords = line.split("[\\s\\p{Punct}]+");
+        for (int i = 0; i < lineWords.length; i++) {
+          if (!lineWords[i].isEmpty()){
+            words.add(lineWords[i]);
           }
         }
-
-        fileRead.close();
-
       }
-      }catch(IOException e){
-           e.printStackTrace();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+    return words;
+  }
+
+  static public Map<Character, Integer> Counter(String word) {
+    Map<Character, Integer> characterCounterMap = new HashMap<>();
+
+    for(int i = 0; i < word.length(); i++) {
+      char character = (char) word.charAt(i);
+      if (!characterCounterMap.containsKey(character)) {
+        characterCounterMap.put(character, 1);
+      } else {
+        characterCounterMap.put(character, characterCounterMap.get(character)+1);
       }
+    }
+
+    return characterCounterMap;
+  }
+
+  static public List<String> findAnagrams(String word, String filePath) {
+
+    List<String> words = readWords(filePath);
+    Map<Character, Integer> wordCharacterCounters = Counter(word);
+
+    List<String> anagrams = new ArrayList<>();
+
+    for (int i = 0; i < words.size(); i++) {
+      Map<Character, Integer> anagramCharCounters = Counter(words.get(i));
+
+      if (checkCharacterCounter(wordCharacterCounters, anagramCharCounters)) {
+        anagrams.add(words.get(i));
+      }
+    }
+    return anagrams;
+  }
+
+  static public boolean checkCharacterCounter(Map<Character, Integer> word, Map<Character, Integer> anagram) {
+    if (word.size() != anagram.size()){
+      return false;
+    }
+
+    for (Map.Entry mapElement : word.entrySet()) {
+      if (mapElement.getValue() != anagram.get(mapElement.getKey())) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  static public void writeWords(List<String> words, String filePath) throws IOException {
+
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+      for (int i = 0; i < words.size(); i++) {
+        writer.write(words.get(i));
+        writer.newLine();
+      }
+      System.out.println(filePath + " file has been written successfully!");
+    }
   }
 
     private static void challenge5() {
