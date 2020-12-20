@@ -20,9 +20,36 @@ public class BinarySearch<T extends Comparable> {
 
     public boolean search(T elem) {
 
-        for (T i : list) {
-            if (i.compareTo(elem) == 0) {
-                return true;
+        int left = 0;
+        int right = list.size()-1;
+
+        if (isSortedAsc()) {
+            while (left <= right) {
+                int mid = left + (right - 1) / 2;
+
+                if (list.get(mid).compareTo(elem) == 0) {
+                    return true;
+                }
+
+                if (list.get(mid).compareTo(elem) == -1) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        } else if (isSortedDesc()) {
+            while (left <= right) {
+                int mid = left + (right - 1) / 2;
+
+                if (list.get(mid).compareTo(elem) == 0) {
+                    return true;
+                }
+
+                if (list.get(mid).compareTo(elem) == 1) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
             }
         }
 
@@ -53,6 +80,10 @@ public class BinarySearch<T extends Comparable> {
         }
 
         return true;
+    }
+
+    public int getSize() {
+        return list.size();
     }
 
 }
