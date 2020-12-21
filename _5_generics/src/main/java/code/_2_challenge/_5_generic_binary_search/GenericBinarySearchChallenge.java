@@ -1,6 +1,7 @@
 package code._2_challenge._5_generic_binary_search;
 
-public class GenericBinarySearchChallenge {
+public class
+GenericBinarySearchChallenge {
 
   public static void main(String[] args) throws ArrayNotSortedException {
     Integer[] list01 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
