@@ -8,9 +8,11 @@ import java.util.List;
 public class Main {
 
   public static void main(String[] args) {
-    //TODO put your code changes in here
-    //challenge1();
-    challenge2();
+      //TODO put your code changes in here
+      //challenge1();
+      //challenge2();
+      challenge4();
+
   }
 
   public static void challenge1() {
@@ -52,5 +54,40 @@ public class Main {
       }
       System.out.println();
     }
+  }
+
+  public static void challenge4() {
+
+      //List<Integer> arr = Arrays.asList(4,3,7,8,6,2,1);
+      List<Integer> arr = Arrays.asList(1,4,3,2);
+
+      boolean conditie;
+
+      do {
+          conditie = true;
+          for (int i=1;i<arr.size()-1;i++) {
+              if (i%2==0) {
+                  if (arr.get(i) > arr.get(i-1)) {
+                      Collections.swap(arr,i,i-1);
+                      conditie=false;
+                  }
+                  if (arr.get(i)>arr.get(i+1)) {
+                      Collections.swap(arr,i,i+1);
+                      conditie=false;
+                  }
+              } else {
+                  if (arr.get(i) < arr.get(i-1)) {
+                      Collections.swap(arr,i,i-1);
+                      conditie=false;
+                  }
+                  if (arr.get(i) < arr.get(i+1)) {
+                      Collections.swap(arr,i,i+1);
+                      conditie=false;
+                  }
+              }
+          }
+      }while (!conditie);
+
+      System.out.println(arr.toString());
   }
 }
