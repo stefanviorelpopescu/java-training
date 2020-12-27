@@ -1,6 +1,7 @@
 package code._4_student_effort;
 
 import code._4_student_effort.Challenge7.HashTable;
+import code._4_student_effort.Challenge8.ArrayListCC;
 import java.util.*;
 import static java.util.Arrays.asList;
 
@@ -13,7 +14,8 @@ public class Main {
       //challenge3();
       //challenge4();
       //challenge5();
-      challenge7();
+      //challenge7();
+      challenge8();
 
   }
 
@@ -137,7 +139,7 @@ public class Main {
   }
 
     public static void challenge7() {
-        HashTable<String, Integer> myHashTable = new HashTable();
+        HashTable<String, Integer> myHashTable = new HashTable<>();
 
         myHashTable.put("key1", 1);
         myHashTable.put("key2", 2);
@@ -145,6 +147,19 @@ public class Main {
         myHashTable.put("key4", 4);
 
         System.out.println(myHashTable.size());
+    }
+
+    public static void challenge8() {
+
+        ArrayListCC<String> arrayListCC = new ArrayListCC<>();
+
+        arrayListCC.add("hello");
+        arrayListCC.add("world");
+
+        System.out.println(arrayListCC.size());
+        arrayListCC.remove("hello");
+        System.out.println(arrayListCC.size());
+        System.out.println(arrayListCC.get(0));
     }
 
 }
