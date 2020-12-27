@@ -2,6 +2,8 @@ package code._4_student_effort;
 
 import code._4_student_effort.Challenge7.HashTable;
 import code._4_student_effort.Challenge8.ArrayListCC;
+import code._4_student_effort.Challenge9.MySetCC;
+
 import java.util.*;
 import static java.util.Arrays.asList;
 
@@ -15,7 +17,8 @@ public class Main {
       //challenge4();
       //challenge5();
       //challenge7();
-      challenge8();
+      //challenge8();
+      challenge9();
 
   }
 
@@ -160,6 +163,19 @@ public class Main {
         arrayListCC.remove("hello");
         System.out.println(arrayListCC.size());
         System.out.println(arrayListCC.get(0));
+    }
+
+    public static void challenge9() {
+
+      MySetCC<String> mySetCC = new MySetCC<>();
+
+      mySetCC.add("hello");
+      mySetCC.add("hello");
+      mySetCC.add("world");
+
+      System.out.println(mySetCC.size());
+      mySetCC.remove("asd");
+      System.out.println(mySetCC.size());
     }
 
 }
