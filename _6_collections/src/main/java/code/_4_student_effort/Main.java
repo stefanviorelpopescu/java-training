@@ -15,10 +15,11 @@ public class Main {
       //challenge2();
       //challenge3();
       //challenge4();
+      challenge6();
       //challenge5();
       //challenge7();
       //challenge8();
-      challenge9();
+      //challenge9();
 
   }
 
@@ -139,6 +140,73 @@ public class Main {
       Collections.sort(merged);
 
       System.out.println(merged.toString());
+  }
+
+  public static void inputMatrix(List<List<Integer>> matrix, int square) {
+
+      for (int i=0;i<square;i++) {
+          for (int j=0;j<square;j++) {
+              matrix.add(new ArrayList<>());
+          }
+      }
+
+      for (int i=0;i<square;i++) {
+          for (int j=0;j<square;j++) {
+              matrix.get(i).add((j+1)*(i+1));
+          }
+      }
+  }
+
+  public static void showMatrix(List<List<Integer>> matrix, int square) {
+
+      for (int i=0;i<square;i++) {
+          for (int j=0;j<square;j++) {
+              System.out.print(matrix.get(i).get(j) + " ");
+          }
+          System.out.println();
+      }
+  }
+
+  public static void spiral(List<List<Integer>> matrix,  int i, int j, int m, int n) {
+
+      if (i >= m || j >= n) {
+          return;
+      }
+
+      for (int p = i; p < n; p++) {
+          System.out.print(matrix.get(i).get(p) + " ");
+      }
+
+      for (int p = i + 1; p < m; p++) {
+          System.out.print(matrix.get(p).get(n-1) + " ");
+      }
+
+      if ((m - 1) != i) {
+          for (int p = n - 2; p >= j; p--) {
+              System.out.print(matrix.get(m-1).get(p) + " ");
+          }
+      }
+
+      if ((n - 1) != j) {
+          for (int p = m - 2; p > i; p--) {
+              System.out.print(matrix.get(p).get(j) + " ");
+          }
+      }
+      spiral(matrix, i + 1, j + 1, m - 1, n - 1);
+  }
+
+
+  public static void challenge6() {
+
+      List<List<Integer>> matrix = new ArrayList<>();
+      int square=4;
+
+      inputMatrix(matrix, square);
+      System.out.println("Initial matrix:");
+      showMatrix(matrix, square);
+      System.out.println("\nSpiral:");
+      spiral(matrix, 0, 0, square, square);
+
   }
 
     public static void challenge7() {
