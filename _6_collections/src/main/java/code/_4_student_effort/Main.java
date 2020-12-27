@@ -1,7 +1,7 @@
 package code._4_student_effort;
 
+import code._4_student_effort.Challenge7.HashTable;
 import java.util.*;
-
 import static java.util.Arrays.asList;
 
 public class Main {
@@ -10,9 +10,10 @@ public class Main {
       //TODO put your code changes in here
       //challenge1();
       //challenge2();
-      challenge3();
+      //challenge3();
       //challenge4();
       //challenge5();
+      challenge7();
 
   }
 
@@ -134,5 +135,16 @@ public class Main {
 
       System.out.println(merged.toString());
   }
+
+    public static void challenge7() {
+        HashTable<String, Integer> myHashTable = new HashTable();
+
+        myHashTable.put("key1", 1);
+        myHashTable.put("key2", 2);
+        myHashTable.put("key3", 3);
+        myHashTable.put("key4", 4);
+
+        System.out.println(myHashTable.size());
+    }
 
 }
