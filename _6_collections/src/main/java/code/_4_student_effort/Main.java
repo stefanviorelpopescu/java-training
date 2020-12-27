@@ -1,9 +1,6 @@
 package code._4_student_effort;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -11,7 +8,8 @@ public class Main {
       //TODO put your code changes in here
       //challenge1();
       //challenge2();
-      challenge4();
+      //challenge4();
+      challenge5();
 
   }
 
@@ -89,5 +87,21 @@ public class Main {
       }while (!conditie);
 
       System.out.println(arr.toString());
+  }
+
+  public static void challenge5() {
+
+      //List<Integer> first = Arrays.asList(1,5,6);
+      //List<Integer> second = Arrays.asList(2,3,4);
+      List<Integer> first = Arrays.asList(1,5,6,7,8,9);
+      List<Integer> second = Arrays.asList(2,3,4);
+
+
+      List<Integer> merged = new ArrayList<>(first);
+      merged.addAll(second);
+
+      Collections.sort(merged);
+
+      System.out.println(merged.toString());
   }
 }
