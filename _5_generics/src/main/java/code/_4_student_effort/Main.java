@@ -71,7 +71,7 @@ public class Main {
       doChallenge4Stage1();
 
       // Stage 2 TODO
-      //doChallenge4Stage2();
+      doChallenge4Stage2();
   }
 
   // Stage 1 usage method in Challenge 5 function
@@ -150,29 +150,28 @@ public class Main {
       return true;
   }
 
-    public static <T extends Comparable> int binarySearch(T[] array, T value, int low, int high, boolean orderType) {
-        if (low > high) return -1;
+  public static <T extends Comparable> int binarySearch(T[] array, T value, int low, int high, boolean orderType) {
+      if (low > high) return -1;
 
-        int mid = (low + high)/2;
+      int mid = (low + high)/2;
 
-        if (array[mid].compareTo(value) < 0) {
-            binarySearch(array, value, low, mid-1, orderType);
-        } else if (array[mid].compareTo(value) > 0) {
-            binarySearch(array, value, mid+1, high, orderType);
-        } else {
-            return mid;
-        }
+      if (array[mid].compareTo(value) < 0) {
+          binarySearch(array, value, low, mid-1, orderType);
+      } else if (array[mid].compareTo(value) > 0) {
+          binarySearch(array, value, mid+1, high, orderType);
+      } else {
+          return mid;
+      }
 
-        // TODO descending case
-        /*if (array[mid] == value) {
-            return mid;
-        } else if (compareValuesAccordingOrderType(array[mid], value, orderType)) {
-            binarySearch(array, value, low, mid, orderType);
-        } else {
-            binarySearch(array, value, mid+1, high, orderType);
-        }*/
-
-        return -1;
+      // TODO descending case
+      /*if (array[mid] == value) {
+           return mid;
+       } else if (compareValuesAccordingOrderType(array[mid], value, orderType)) {
+           binarySearch(array, value, low, mid, orderType);
+       } else {
+           binarySearch(array, value, mid+1, high, orderType);
+       }*/
+       return -1;
     }
 
     public static <T extends Comparable> boolean compareValuesAccordingOrderType(T value1, T value2, boolean orderType) {

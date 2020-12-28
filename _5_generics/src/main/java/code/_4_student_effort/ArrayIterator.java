@@ -15,6 +15,7 @@ public class ArrayIterator<T> implements IArrayIterator<T> {
 
     // TODO
     ArrayIterator(IGenericList<T> headList) {
+        // ???
         IGenericNode<T> node = (IGenericNode<T>) headList;
         while (node.getNext() != null) {
             listData.add(node.getValue());
