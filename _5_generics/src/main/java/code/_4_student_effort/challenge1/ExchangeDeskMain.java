@@ -5,9 +5,8 @@ public class ExchangeDeskMain {
         ExchangeDesk exchangeDesk = new ExchangeDesk();
         RON ronValue = new RON(1000);
 
-        USD newValue = exchangeDesk.convert(ronValue, USD.class, (float) 4.2);
-        System.out.println("Exchange result = " + newValue.getValue());
+        USD convertedValue = exchangeDesk.convert(ronValue, USD.class, (float) 4.2);
+        System.out.println("Exchange result = " + convertedValue.getValue());
 
-        // stage 2 unfinished
     }
 }
