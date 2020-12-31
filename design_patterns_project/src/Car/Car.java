@@ -1,9 +1,24 @@
 package Car;
 
+import Brands.Builder;
+
 public abstract class Car extends Features {
     private String brand;
     private String ownerName;
     private double price;
+
+    public Car(Builder builder) {
+        this.ownerName = builder.getOwnerName();
+
+        setAutoAirCondition(builder.isAutoAirCondition());
+        setLeatherSeats(builder.isLeatherSeats());
+        setSunRoof(builder.isSunRoof());
+        setBackupCamera(builder.isBackupCamera());
+        setNavigationSystem(builder.isNavigationSystem());
+        setBluetooth(builder.isBluetooth());
+        setRemoteStart(builder.isRemoteStart());
+        setBlindSpotMonitoring(builder.isBlindSpotMonitoring());
+    }
 
     public String getBrand() {
         return brand;

@@ -15,20 +15,20 @@ public class Main {
             System.out.println("Audi-essential costs: " + BrandsFactory.getCar("Audi-essential", "none").getTotalPrice());
             System.out.println("BMW-essential costs: " + BrandsFactory.getCar("BMW-essential", "none").getTotalPrice() + "\n");
 
-            BMW john = new BMWBuilder("John")
+            BMW john = new Builder("John")
                     .withAutoAirCondition()
                     .withBackupCamera()
                     .withBlindSpotMonitoring()
                     .withRemoteStart()
                     .withSunRoof()
-                    .build();
+                    .build(BMW.class);
             System.out.println(john.getOwnerName() + " " + john.toString() + "\n");
 
-            Audi diana = new AudiBuilder("Diana")
+            Audi diana = new Builder("Diana")
                     .withBluetooth()
                     .withRemoteStart()
                     .withNavigationSystem()
-                    .build();
+                    .build(Audi.class);
             System.out.println(diana.getOwnerName() + " " + diana.toString() + "\n");
 
             Car mihaela = BrandsFactory.getCar("BMW-comfort", "Mihaela");
