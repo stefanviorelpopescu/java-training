@@ -91,6 +91,7 @@ public abstract class Car extends Features {
                 toReturn += "\tblinding spot monitoring\n";
             }
         }
+
         toReturn += "Price: " + getTotalPrice() + " euro";
 
         return toReturn;
