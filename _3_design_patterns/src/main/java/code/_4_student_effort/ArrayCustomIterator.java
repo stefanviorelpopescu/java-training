@@ -1,6 +1,5 @@
-package code._4_student_effort.challenge1;
+package code._4_student_effort;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class ArrayCustomIterator {

@@ -1,4 +1,4 @@
-package code._4_student_effort.challenge1;
+package code._4_student_effort;
 
 public class BoxingMatch {
     Fighter f1;
