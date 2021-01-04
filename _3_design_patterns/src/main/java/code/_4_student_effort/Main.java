@@ -14,6 +14,8 @@ public class Main {
     challenge5();
     System.out.println("\nChallenge6");
     challenge6();
+
+
   }
 
   public static void challenge3() {
