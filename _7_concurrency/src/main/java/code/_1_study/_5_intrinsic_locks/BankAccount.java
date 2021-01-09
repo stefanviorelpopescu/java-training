@@ -9,12 +9,12 @@ public class BankAccount {
     this.debit = debit;
   }
 
-  void withdraw(double amount) {
+  public void withdraw(double amount) {
     simulateLongDatabaseCall();
     this.debit -= amount;
   }
 
-  void deposit(double amount) {
+  public void deposit(double amount) {
     simulateLongDatabaseCall();
     this.debit += amount;
   }
