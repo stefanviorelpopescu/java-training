@@ -44,8 +44,19 @@ public class Pawn {
     }
 
     public void Move(MovementType movementType, int newX, int newY) {
-        throw new UnsupportedOperationException("Need to implement Pawn.Move()") ;
-    }
+            if (chessBoard.IsLegalBoardPosition(newX, newY) & chessBoard.isFreePosition(newX, newY)) {  //Checking the legibility and availability of the move
+                if (this.pieceColor == PieceColor.BLACK) {
+                    if (this.xCoordinate == newX && newY == this.yCoordinate - 1) {   //If xCoordinate was not altered, and by case of pawn color, moving the pawn
+                        this.yCoordinate = newY;
+                    }
+                } else {
+                    if (this.xCoordinate == newX && newY == this.yCoordinate + 1) {
+                        this.yCoordinate = newY;
+                    }
+                }
+            }
+        }
+
 
     @Override
     public String toString() {
