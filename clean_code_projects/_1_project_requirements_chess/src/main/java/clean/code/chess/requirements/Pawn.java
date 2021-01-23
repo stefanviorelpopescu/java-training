@@ -9,6 +9,8 @@ public class Pawn {
 
     public Pawn(PieceColor pieceColor) {
         this.pieceColor = pieceColor;
+        this.setXCoordinate(-1);
+        this.setYCoordinate(-1);
     }
 
     public ChessBoard getChesssBoard() {
@@ -44,7 +46,21 @@ public class Pawn {
     }
 
     public void Move(MovementType movementType, int newX, int newY) {
-        throw new UnsupportedOperationException("Need to implement Pawn.Move()") ;
+        if(movementType.equals(MovementType.MOVE)) {
+            if (this.getPieceColor().equals(PieceColor.WHITE)) {
+                if (this.getXCoordinate() == newX && this.getYCoordinate() == (newY - 1))
+                {
+                    this.setYCoordinate(newY);
+                }
+            } else
+                {
+
+                  if (this.getXCoordinate() == newX && this.getYCoordinate() == (newY + 1))
+                  {
+                    this.setYCoordinate(newY);
+                   }
+                }
+        }
     }
 
     @Override
