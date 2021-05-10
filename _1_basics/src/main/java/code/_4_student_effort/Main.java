@@ -6,5 +6,6 @@ public class Main {
     //TODO put your code changes in here
     //Primul comentariu pentru git : Petre Ionut-Adrian
     //al doilea comentariu -test 
+    System.out.println("Salut");
   }
 }
