@@ -20,7 +20,8 @@ public class Main {
     /* Challenge 2 */
     CodeChallengeTwo codeChallengeTwo = new CodeChallengeTwo();
     System.out.println("Challenge 2");
-    System.out.println(codeChallengeTwo.compute(13));
+    System.out.println(codeChallengeTwo.compute1(15));
+    System.out.println(codeChallengeTwo.compute2(303));
 
     System.out.println("-----------");
 
