@@ -30,7 +30,6 @@ public class PairOf3 {
                 }
             }
         }
-
         return pairs;
     }
 }
