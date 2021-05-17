@@ -6,7 +6,7 @@ public class PostfixIncrement {
 
     int x = 0;
 
-    while (++x < 10) {
+    while (x++ < 10) {
       System.out.println("x = " + x);
     }
 //    checkForXValue(x);
