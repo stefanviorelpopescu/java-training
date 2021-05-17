@@ -76,16 +76,14 @@ public class Main {
     static int challenge3() {
         int[] a = {-7, -3, -2, 0, 1, 2, 3, 6, 7};
         int nrOfPairs = 0;
-        int k = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 1; j < a.length; j++) {
+        for (int i = 0; i < a.length-1; i++) {
+            for (int j = i+1; j < a.length; j++) {
                 if ((a[i] + a[j]) == 0) {
                     nrOfPairs += 1;
-                    k++;
                 }
             }
         }
-        return nrOfPairs / 2;
+        return nrOfPairs;
     }
     /* Challenge 3 - Pair of 2
       Given an array of integers, find the number of unique pairs (any 3 numbers that added result to 0) from the array
@@ -93,15 +91,15 @@ public class Main {
     static int challenge4() {
         int[] a = {-1,-1,-1,2};
         int nrOfPairs = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 1; j < a.length-1; j++) {
-                for (int k = 3; j < a.length-2; j++) {
-                    if ((a[i] + a[j] + a[k]) == 0) {
+        for (int i = 0; i < a.length-2; i++) {
+            for (int j = i+1; j < a.length-1; j++) {
+                for (int k = j+1; j < a.length; j++) {
+                    if (a[i] + a[j] + a[k] == 0) {
                         nrOfPairs += 1;
                     }
                 }
             }
         }
-        return nrOfPairs/3;
+        return nrOfPairs;
     }
 }
