@@ -2,7 +2,7 @@ package code._4_student_effort;
 
 public class Challange2 {
 
-    public String compute(int i) {
+    public String Compute(int i) {
         String s = "";
         if (i % 3 == 0) s += "Foo";
         if (i % 5 == 0) s += "Bar";
