@@ -58,6 +58,18 @@ public class Main {
       System.out.println(s);
     }
 
+    System.out.println("\nCode challenge 3 - TO DO");
+    Integer[] array;
+    array = new Integer[] {2, -2, 1, 3, -3};
+    Integer x = countPairs(array);
+    System.out.println("No. of pairs is " + x);
+
+    System.out.println("\nCode challenge 4 - TO DO");
+    Integer[] array1;
+    array1 = new Integer[] {2, -2, 1, 3, -3, 4, -1, 5, -4};
+    Integer x1 = countPairs(array1);
+    System.out.println("No. of pairs is " + x1);
+
   }
 
   public static String compute(int i) {
@@ -128,7 +140,57 @@ public class Main {
       newChar = String.valueOf(i);
     }
 
-
     return newChar;
+  }
+
+  public static Integer countPairs(Integer[] givenArray) {
+    Integer[] array = new Integer[givenArray.length];
+    Integer nrOfPairs = 0;
+    int nrOfReIndexesInPairs = 0;
+
+    for(int i = 0; i < givenArray.length - 1; i++) {
+      for(int j = i + 1; j < givenArray.length; j++) {
+        boolean ok = false;
+        for(int k = 0; k < nrOfReIndexesInPairs; k++) {
+          if(array[k] == i || array[k] == j) {
+            ok = true;
+          }
+        }
+        if(!ok && (givenArray[i] + givenArray[j] == 0)) {
+          array[nrOfReIndexesInPairs++] = i;
+          array[nrOfReIndexesInPairs++] = j;
+          nrOfPairs++;
+          break;
+        }
+      }
+    }
+    return nrOfPairs;
+  }
+
+  public static Integer countPairs2(Integer[] givenArray) {
+    Integer[] array = new Integer[givenArray.length];
+    Integer nrOfPairs = 0;
+    int nrOfReIndexesInPairs = 0;
+
+    for(int i = 0; i < givenArray.length - 2; i++) {
+      for(int j = i + 1; j < givenArray.length - 1; j++) {
+        for(int k = j +1; k < givenArray.length; k++) {
+          boolean ok = false;
+          for (int l = 0; l < nrOfReIndexesInPairs; l++) {
+            if (array[l] == i || array[l] == j || array[l] == k) {
+              ok = true;
+            }
+          }
+          if (!ok && (givenArray[i] + givenArray[j] + givenArray[k] == 0)) {
+            array[nrOfReIndexesInPairs++] = i;
+            array[nrOfReIndexesInPairs++] = j;
+            array[nrOfReIndexesInPairs++] = k;
+            nrOfPairs++;
+            break;
+          }
+        }
+      }
+    }
+    return nrOfPairs;
   }
 }
