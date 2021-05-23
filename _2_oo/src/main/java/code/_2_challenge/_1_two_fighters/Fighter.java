@@ -1,6 +1,7 @@
 package code._2_challenge._1_two_fighters;
 
-public class Fighter {
+public class Fighter
+{
   public final String name;
   public final int damagePerAttack;
   public int health;
