@@ -29,7 +29,7 @@ public class FooBarQixTest {
   public static Map<Integer, String> stage2 = Map.ofEntries(
           entry(101, "1*1"),
           entry(303, "FooFoo*Foo"),
-          entry(105, "FooBarQix*Bar"),
+          entry(105, "code._4_student_effort.FooBarQix*Bar"),
           entry(10101, "FooQix**")
   );
 

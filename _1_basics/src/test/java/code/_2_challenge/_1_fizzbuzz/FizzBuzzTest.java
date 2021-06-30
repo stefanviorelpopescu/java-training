@@ -20,7 +20,7 @@ public class FizzBuzzTest {
           entry(10, "Buzz"),
           entry(13, "13"),
           entry(14, "14"),
-          entry(15, "FizzBuzz"),
+          entry(15, "code._4_student_effort.FizzBuzz"),
           entry(16, "16"),
           entry(17, "17"),
           entry(18, "Fizz"),
@@ -35,7 +35,7 @@ public class FizzBuzzTest {
           entry(27, "Fizz"),
           entry(28, "28"),
           entry(29, "29"),
-          entry(30, "FizzBuzz")
+          entry(30, "code._4_student_effort.FizzBuzz")
   );
 
   public static Map<Integer, String> stage2 = Map.ofEntries(
