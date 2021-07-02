@@ -14,4 +14,5 @@ public class Fighter {
   public void attack(Fighter opponent) {
     opponent.health = opponent.health - this.damagePerAttack;
   }
+
 }
