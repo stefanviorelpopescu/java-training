@@ -35,12 +35,7 @@ public class ClassTypes {
     int k = 0;
     int l = 1;
 
-    Runnable annonimousClass = new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("annonimousClass - run");
-      }
-    };
+    Runnable annonimousClass = () -> System.out.println("annonimousClass - run");
     annonimousClass.run();
   }
 

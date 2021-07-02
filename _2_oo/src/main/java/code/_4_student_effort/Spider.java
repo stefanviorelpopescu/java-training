@@ -1,0 +1,17 @@
+package code._4_student_effort;
+
+public class Spider extends Animal{
+    public Spider() {
+
+        super(8);
+    }
+
+    //implementation of the abstract method eat()
+    public void eat() {
+
+        System.out.println("The spider eats");
+    }
+
+
+
+}
