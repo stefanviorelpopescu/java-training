@@ -1,4 +1,4 @@
-package code._2_challenge._4_number_to_lcd;
+package code._3_in_class;
 
 import java.io.*;
 import java.util.Arrays;
@@ -6,9 +6,11 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class NumberToLcd {
-    private static final String INPUT_FILE = "_4_exceptions_io\\_test_files\\in\\input_number.txt";
-    private static final String OUTPUT_FILE = "_4_exceptions_io\\_test_files\\out\\output_number.txt";
 
+    private static final String INPUT_FILE = "_test_files\\in\\input_number.txt";
+    private static final String OUTPUT_FILE = "_test_files\\out\\output_number.txt";
+
+    private static int width = 3, height = 5;
     public static void main(String[] args) {
         String[] numbersFromFile = new String[0];
         try {
@@ -16,11 +18,13 @@ public class NumberToLcd {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        for (String number : numbersFromFile) {
-            int numberOfChars = number.length();
-            writeInFile(getNumberRepresentation(number), numberOfChars, OUTPUT_FILE);
+        for (int i = 0; i < numbersFromFile.length; i++) {
+            String number = numbersFromFile[i];
+            int size = number.length();
+            writeInFile(getNumberRepresentation(number), size, OUTPUT_FILE);
         }
     }
+
 
     private static int[][][] getNumberRepresentation(String number) {
         int numberOfChars = number.length();
@@ -48,7 +52,7 @@ public class NumberToLcd {
             else if (number.charAt(i) == '8') chars[i] = eight;
             else if (number.charAt(i) == '9') chars[i] = nine;
             else if (number.charAt(i) == '0') chars[i] = zero;
-            else chars[i] = one;
+            else chars[i] = four;
         }
         return chars;
     }
@@ -89,13 +93,37 @@ public class NumberToLcd {
                 for (i = 0; i < numberOfChars; i++) {
                     for (k = 0; k < 3; k++) {
                         if (chars[i][j][k] == 1) {
-                            if (k == 1) writer.write("_");
-                            else writer.write("|");
+                            if (k == 1) {
+                                for (int y = 0; y < width; y++)
+                                    writer.write("_");
+                            } else
+                                writer.write("|");
                         } else writer.write(" ");
                     }
                     writer.write(" ");
                 }
                 writer.write("\n");
+                if (j < 2) {
+                    for (int q = 0; q < height / 2 - 1; q++) {
+
+                        for (i = 0; i < numberOfChars; i++) {
+                            if (chars[i][j + 1][0] == 1)
+                                writer.write("|");
+                            else
+                                writer.write(" ");
+                            for (int y = 0; y < width; y++) {
+                                writer.write(" ");
+                            }
+
+                            if (chars[i][j + 1][2] == 1)
+                                writer.write("|");
+                            else
+                                writer.write(" ");
+                            writer.write(" ");
+                        }
+                        writer.write("\n");
+                    }
+                }
             }
         } finally {
             if (writer != null) writer.close();
