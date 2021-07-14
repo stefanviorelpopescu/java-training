@@ -1,0 +1,16 @@
+
+                    BUILDER
+
+    Avem o aplicatie de joc cu super-eroi, acestia au diferite puteri si caracteristici.
+Pentru dezvoltarea unui joc online (cu supereroi) sa se dezvolte o solutie software care sa permita
+
+- instantierea supereroului asociat jucatorului
+- acesta are multe atribute pentru a permite particularizarea sa
+- nume, estePozitiv, puncteViata, armaManaStanga, armaManaDreapta, superPutere, esteRanitCritic, superSuperPutere, etc
+- trebuie gasita o solutie eficienta care sa permita crearea supereroului fara a da valori pentru toate atributele
+dar si fara a permite programatorilor sa omita unele dintre ele
+
+    Soluția trebuie sa construiască obiecte complexe printr-un mecanism care este independent de procesul de
+realizare a obiectelor. Clientul construiește obiectele complexe specificând doar tipul si valoarea sa, fără a cunoaște
+detaliile interne ale obiectului (cum stochează si reprezintă valorile). Obiectele sunt gestionate prin interfața
+comuna.

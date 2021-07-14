@@ -1,0 +1,13 @@
+
+                    PROTOTYPE
+
+    Toate caracterele jocului au asociat un model grafic 3D, sa se implementeze o aplicatie cu ajutorul careia :
+- in joc pot aparea mai multe instante ale aceluiasi caracter
+- crearea modelului 3D este un proces costisitor deoarece presupune incarcarea si generarea modelului
+- trebuie gasita o solutie eficienta pentru a crea mai multe instante ale aceluiasi caracter
+
+    Cele 2 modele 3D pentru caractere sunt destul de complexe și generarea lor are impact asupra timpului de procesare
+și implicit asupra duratei de viață a acumulatorului. Același model este utilizat de mai multe ori pentru a popula o
+scena cu personaje. Trebuie găsită o soluție eficientă prin care scenele să fie încărcate rapid, iar pt eficienta,
+soluția cu design pattern-ul prototype reutilizează obiectul prin clonarea acestuia (se creează o instanta noua a
+obiectului).
