@@ -1,4 +1,4 @@
-package code._4_student_effort.project_01.prototype;
+package clean.code.design_patterns.requirements.project_01.prototype;
 
 public class TestPrototype {
 
