@@ -1,10 +1,10 @@
 
-                ADAPTER DE OBIECTE
+                ADAPTER DE OBIECTE - PROIECT INTERMEDIAR
 
     Se doreste un nou framework pentru serviciile din back-end. Interfața pentru aceste servicii gestionează datele prin
 intermediul obiectelor de tip ACME. Se se găsească o soluție de a integra cele doua framework-uri fără a le modifica.
 
-Utilizarea unei librarii externe ce contine caractere Disney.
+    Utilizarea unei librarii externe ce contine caractere Disney.
 - in prezent jocul contine caractere proprii ce fac parte din framework-ul initial (denumit ACME)
 
     Clasele sunt adaptate la un nou context, iar apelurile către interfața clasei sunt mascate de interfața adaptorului.
