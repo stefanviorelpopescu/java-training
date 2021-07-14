@@ -15,7 +15,7 @@ public class Person {
     this.isMarried = builder.isMarried;
   }
 
-  static class Builder {
+  public static class Builder {
     private final String name;
     private String job;
     private String university;
