@@ -7,10 +7,13 @@ public class Main {
 
   public static void main(String[] args) {
 
-//    BoxingMatch match=new BoxingMatch();
-//    System.out.println("aaa");
-//    System.out.println("winner is:"+match.fight());
+    //Challenge 1
+    BoxingMatch match=new BoxingMatch();
+    System.out.println("aaa");
+    System.out.println("winner is:"+match.fight());
 
+
+    //Challlenge 2
     Prize oscar1990=new Prize("oscar",1990);
     Prize oscar2000=new Prize("oscar",2000);
     Prize oscar2010=new Prize("oscar",2010);
