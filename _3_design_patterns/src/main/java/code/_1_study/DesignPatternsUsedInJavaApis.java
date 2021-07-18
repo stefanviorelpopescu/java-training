@@ -3,11 +3,10 @@ package code._1_study;
 public class DesignPatternsUsedInJavaApis {
 
   public static class Creational {
-  /*
-  SINGLETON:
-  java.langRuntime
-  java.awt.Desktop
-   */
+
+  //SINGLETON:
+  //java.langRuntime;
+  //java.awt.Desktop;
 
   /*
   FACTORY
